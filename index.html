@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hardwood Specialists — St. Petersburg, FL</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;family=Instrument+Serif:ital@0;1&amp;family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,600&amp;family=Geist:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0a0c0e}
+a{color:var(--ac)}a:hover{color:var(--ac-hi)}
+*{box-sizing:border-box}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+.hs-navlink{color:rgba(242,239,232,0.78);text-decoration:none;transition:color 180ms ease}
+.hs-navlink:hover{color:#f2efe8}
+.hs-btn-gold{transition:transform 180ms ease,box-shadow 300ms ease}
+.hs-btn-gold:hover{color:var(--ac-ink);transform:translateY(-1px);box-shadow:rgba(var(--ac-rgb),0.35) 0 0 0 1px,rgba(var(--ac-rgb),0.55) 0 10px 34px -8px}
+.hs-btn-ghost{transition:border-color 180ms ease,background 180ms ease}
+.hs-btn-ghost:hover{color:#f2efe8;border-color:rgba(242,239,232,0.62);background:rgba(242,239,232,0.06)}
+.hs-card{transition:border-color 300ms ease,transform 300ms ease}
+.hs-card:hover{border-color:rgba(var(--ac-rgb),0.55);transform:translateY(-2px)}
+@property --reveal{syntax:'<percentage>';inherits:true;initial-value:-15%}
+.hs-hero{--reveal:-15%;--zoom:1;--seam:0;--p:0}
+.hs-ba-drive{transform:scale(var(--zoom));transform-origin:50% 65%;will-change:transform}
+.hs-ba-after{-webkit-mask-image:linear-gradient(90deg,#000 calc(var(--reveal) - 9%),rgba(0,0,0,0.6) var(--reveal),transparent calc(var(--reveal) + 9%));mask-image:linear-gradient(90deg,#000 calc(var(--reveal) - 9%),rgba(0,0,0,0.6) var(--reveal),transparent calc(var(--reveal) + 9%))}
+.hs-ba-seam{left:var(--reveal);opacity:var(--seam)}
+.hs-mode-planks .hs-ba-after{display:none}
+@property --wipe{syntax:'<percentage>';inherits:false;initial-value:-8%}
+.hs-empty{position:absolute;inset:0;width:100%;height:100%;--wipe:-8%;-webkit-mask-image:linear-gradient(90deg,#000 calc(var(--wipe) - 7%),transparent calc(var(--wipe) + 1%));mask-image:linear-gradient(90deg,#000 calc(var(--wipe) - 7%),transparent calc(var(--wipe) + 1%));animation:hs-wipe 5.32s linear both;animation-delay:1.12s}
+@keyframes hs-wipe{0%{--wipe:0.34%}5%{--wipe:4.46%}10%{--wipe:7.75%}15%{--wipe:11.87%}20%{--wipe:16.82%}25%{--wipe:21.76%}30%{--wipe:26.11%}35%{--wipe:33.55%}40%{--wipe:38.01%}45%{--wipe:43.96%}50%{--wipe:51.67%}55%{--wipe:60.73%}60%{--wipe:69.80%}65%{--wipe:78.86%}70%{--wipe:87.92%}75%{--wipe:92.69%}80%{--wipe:94.34%}85%{--wipe:95.99%}90%{--wipe:97.36%}95%{--wipe:98.73%}100%{--wipe:108.00%}}
+@keyframes hs-reveal-full{to{opacity:1}}
+.hs-mode-planks .hs-ba-seam{display:none}
+.hs-plank{position:absolute;background-image:url(./assets/8c54b50d264631958ec47ac71195e559.jpg);background-repeat:no-repeat;transform:translate3d(0,-130vh,0) rotate(var(--rot));animation:hs-drop 0.58s cubic-bezier(.55,0,.85,.36) forwards;animation-delay:var(--d);will-change:transform}
+.hs-plank::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,236,200,0.75),rgba(255,236,200,0));opacity:0;animation:hs-flash 0.5s ease-out forwards;animation-delay:calc(var(--d) + 0.4s)}
+@keyframes hs-drop{0%{transform:translate3d(0,-130vh,0) rotate(var(--rot)) scale(1.35)}72%{transform:translate3d(0,0,0) rotate(0deg) scale(1)}82%{transform:translate3d(0,-14px,0) rotate(calc(var(--rot) * -0.08)) scale(1.02)}91%{transform:translate3d(0,0,0) scale(1)}96%{transform:translate3d(0,-3px,0)}100%{transform:translate3d(0,0,0) rotate(0deg) scale(1)}}
+@keyframes hs-settle{0%{box-shadow:0 30px 50px rgba(0,0,0,0.55),inset 0 0 0 1px rgba(0,0,0,0.55)}100%{box-shadow:0 0 0 rgba(0,0,0,0),inset 0 0 0 1px rgba(0,0,0,0.12)}}
+.hs-furn{position:absolute;display:block;transform:translate3d(0,-140vh,0) rotate(var(--rot));transform-origin:50% 100%;animation:hs-drop-heavy 0.85s cubic-bezier(.6,0,.9,.4) forwards;animation-delay:var(--d);will-change:transform;filter:drop-shadow(0 18px 22px rgba(0,0,0,0.45))}
+@keyframes hs-drop-heavy{0%{transform:translate3d(0,-140vh,0) rotate(var(--rot)) scale(1.15)}68%{transform:translate3d(0,0,0) rotate(0deg) scale(1.04,0.92)}78%{transform:translate3d(0,-22px,0) rotate(calc(var(--rot) * -0.15)) scale(0.98,1.03)}88%{transform:translate3d(0,0,0) scale(1.02,0.97)}94%{transform:translate3d(0,-4px,0) scale(1)}100%{transform:translate3d(0,0,0) rotate(0deg) scale(1)}}
+@media (prefers-reduced-motion: reduce){.hs-furn{display:none}}
+@keyframes hs-flash{0%{opacity:0}25%{opacity:1}100%{opacity:0}}
+.hs-hero:not(.hs-go) .hs-plank,.hs-hero:not(.hs-go) .hs-plank::after,.hs-hero:not(.hs-go) .hs-empty{animation-play-state:paused}
+.hs-stage{position:absolute;pointer-events:none}
+.hs-hero .hs-ba{opacity:0;transition:opacity 600ms ease}
+.hs-hero.hs-ready .hs-ba{opacity:1}
+.hs-plank{backface-visibility:hidden}
+@media (prefers-reduced-motion: reduce){.hs-plank,.hs-empty{display:none}.hs-mode-planks .hs-ba-after{display:block;opacity:1;-webkit-mask-image:none;mask-image:none}}
+@media (prefers-reduced-motion: reduce){.hs-ba-drive{transform:none}}
+.hs-gal-item img{transition:transform 450ms ease}
+.hs-gal-item:hover img{transform:scale(1.035)}
+.hs-gal-item:hover{border-color:rgba(var(--ac-rgb),0.55)}
+.hs-head{background:linear-gradient(180deg,rgba(10,12,14,0.72) 0%,rgba(10,12,14,0.28) 100%);border-bottom:1px solid rgba(242,239,232,0);transition:background 400ms ease,border-color 400ms ease,backdrop-filter 400ms ease}
+.hs-head-solid{background:rgba(10,12,14,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(242,239,232,0.14);transition:background 400ms ease,border-color 400ms ease}
+.hs-menu-btn{display:none}
+.hs-marquee{display:flex;width:max-content;animation:hs-scroll 20s linear infinite}
+@keyframes hs-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){.hs-marquee{animation:none}.hs-card,.hs-btn-gold{transition:none}}
+@media (max-width: 1040px){.hs-navlinks,.hs-header-phone{display:none !important}.hs-menu-btn{display:inline-flex !important}}
+@media (max-width: 860px){.hs-show-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;grid-auto-rows:200px !important}.hs-show-a{grid-column:span 2 !important}.hs-show-b{grid-column:span 1 !important}}
+@media (max-width: 720px){.hs-topbar-mid,.hs-header-cta{display:none !important}}
+.hs-wrapfix{min-width:0;overflow-wrap:anywhere}
+input::placeholder,textarea::placeholder{color:rgba(10,12,14,0.5)}
+</style>
+</helmet>
+<div style="overflow-x: clip; --ac: {{ac}}; --ac-rgb: {{acRgb}}; --ac-hi: {{acHi}}; --ac-hi-rgb: {{acHiRgb}}; --ac-ink: {{acInk}}; --fd: {{fd}}; --fdw: {{fdw}}; --fdt: {{fdt}}; font-family: {{fb}}; font-size: 16px; line-height: 1.7; color: #f2efe8; background: #0a0c0e; min-height: 100vh">
+
+<!-- TOP BAR -->
+<div style="background: var(--ac); color: var(--ac-ink); font-size: 13px; font-weight: 500; letter-spacing: 0.02em">
+<div style="max-width: 1280px; margin: 0 auto; padding: 8px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 24px">
+<span>Lic. #C9359</span>
+<a href="https://maps.app.goo.gl/6oSgEABUzBe8QkEK8" style="color: var(--ac-ink); text-decoration: none">2595 30th Avenue North, St. Petersburg, FL 33713</a>
+<a href="tel:+17273229663" style="color: var(--ac-ink); font-weight: 700; text-decoration: none">(727) 322-9663</a>
+</div>
+</div>
+
+<!-- HEADER -->
+<header ref="{{setHeader}}" class="{{headerClass}}" style="position: sticky; top: 0; z-index: 20">
+<div style="max-width: 1280px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px">
+<a href="#top" aria-label="Hardwood Specialists — home" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #f2efe8">
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="var(--ac)" stroke-width="1.5" aria-hidden="true"><rect x="1" y="1" width="38" height="38" rx="4"></rect><path d="M8 12h14M8 20h24M8 28h10M24 12h8M20 28h12"></path></svg>
+<span style="display: flex; flex-direction: column; line-height: 1.05">
+<span style="font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: clamp(19px, 5vw, 25px); white-space: nowrap">Hardwood Specialists</span>
+<span style="font-size: 10.5px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ac)">St. Petersburg · Florida</span>
+</span>
+</a>
+<nav aria-label="Primary" class="hs-navlinks" style="display: flex; align-items: center; gap: 30px; font-size: 14.5px; font-weight: 500">
+<a class="hs-navlink" href="#collections">Specialist</a>
+<a class="hs-navlink" href="#services">Services</a>
+<!-- hidden for now: <a class="hs-navlink" href="#brands">Brands</a> -->
+<a class="hs-navlink" href="#gallery">Gallery</a>
+<a class="hs-navlink" href="#showroom">Showroom</a>
+<!-- hidden for now: <a class="hs-navlink" href="#reviews">Reviews</a> -->
+<a class="hs-navlink" href="#contact">Contact</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 16px">
+<a class="hs-header-phone hs-navlink" href="tel:+17273229663" style="font-size: 14.5px; font-weight: 600">(727) 322-9663</a>
+<a class="hs-btn-gold hs-header-cta" href="#contact" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 22px; border-radius: 0; background: var(--ac); color: var(--ac-ink); font-size: 14px; font-weight: 700; text-decoration: none; white-space: nowrap">Book a Showroom Visit</a>
+<button class="hs-menu-btn" type="button" aria-label="{{menuLabel}}" aria-expanded="{{menuOpen}}" onClick="{{toggleMenu}}" style="width: 44px; height: 44px; align-items: center; justify-content: center; border-radius: 50px; border: 1px solid rgba(242,239,232,0.3); background: transparent; color: #f2efe8; cursor: pointer">
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14"></path></svg>
+</button>
+</div>
+</div>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
+<nav aria-label="Mobile" style="border-top: 1px solid rgba(242,239,232,0.14); padding: 8px 24px 24px; display: flex; flex-direction: column; font-size: 18px">
+<a class="hs-navlink" href="#collections" onClick="{{closeMenu}}" style="padding: 12px 0; border-bottom: 1px solid rgba(242,239,232,0.08)">Specialist</a>
+<a class="hs-navlink" href="#services" onClick="{{closeMenu}}" style="padding: 12px 0; border-bottom: 1px solid rgba(242,239,232,0.08)">Services</a>
+<!-- hidden for now: <a class="hs-navlink" href="#brands" onClick="{{closeMenu}}" style="padding: 12px 0; border-bottom: 1px solid rgba(242,239,232,0.08)">Brands</a> -->
+<a class="hs-navlink" href="#gallery" onClick="{{closeMenu}}" style="padding: 12px 0; border-bottom: 1px solid rgba(242,239,232,0.08)">Gallery</a>
+<a class="hs-navlink" href="#showroom" onClick="{{closeMenu}}" style="padding: 12px 0; border-bottom: 1px solid rgba(242,239,232,0.08)">Showroom</a>
+<!-- hidden for now: <a class="hs-navlink" href="#reviews" onClick="{{closeMenu}}" style="padding: 12px 0; border-bottom: 1px solid rgba(242,239,232,0.08)">Reviews</a> -->
+<a class="hs-navlink" href="#contact" onClick="{{closeMenu}}" style="padding: 12px 0">Contact</a>
+<a class="hs-btn-gold" href="#contact" onClick="{{closeMenu}}" style="margin-top: 16px; display: flex; justify-content: center; align-items: center; min-height: 48px; border-radius: 0; background: var(--ac); color: var(--ac-ink); font-size: 15px; font-weight: 700; text-decoration: none">Book a Showroom Visit</a>
+<a href="tel:+17273229663" style="margin-top: 10px; text-align: center; font-weight: 600">Call (727) 322-9663</a>
+</nav>
+</sc-if>
+</header>
+
+<!-- HERO -->
+<div ref="{{setHeroWrap}}" style="position: relative; height: {{heroWrapH}}; margin-top: {{heroPull}}">
+<section id="top" ref="{{setHero}}" class="hs-hero {{heroMode}} {{goClass}}" aria-labelledby="hero-title" style="--done: {{planksDone}}; position: sticky; top: {{heroTop}}; z-index: 1; min-height: clamp(680px, 100vh, 1000px); display: flex; align-items: flex-start; overflow: hidden; background-color: #1a140e">
+<div class="hs-ba hs-ba-drive" aria-hidden="true" style="position: absolute; inset: 0">
+<img src="./assets/8a0b155aa93ec6cd70b093f3d2b2a701.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 70%">
+<img class="hs-ba-after" src="./assets/8c54b50d264631958ec47ac71195e559.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 70%">
+<sc-if value="{{planks}}" hint-placeholder-val="{{false}}">
+<div class="hs-stage" style="left: {{stL}}; top: {{stT}}; width: {{stW}}; height: {{stH}}">
+<img class="hs-empty" src="./assets/8c54b50d264631958ec47ac71195e559.jpg" alt="">
+<sc-for list="{{tiles}}" as="t" hint-placeholder-count="0">
+<div class="hs-plank" style="left: {{t.l}}; top: {{t.t}}; width: {{t.w}}; height: {{t.h}}; background-size: {{t.bs}}; background-position: {{t.bp}}; --d: {{t.d}}; --rot: {{t.rot}}; clip-path: {{t.cp}}; -webkit-clip-path: {{t.cp}}"></div>
+</sc-for>
+</div>
+</sc-if>
+</div>
+<div aria-hidden="true" style="position: absolute; inset: 0; background: radial-gradient(ellipse 70% 50% at 50% 34%, rgba(10,12,14,0.7) 0%, rgba(10,12,14,0.35) 60%, rgba(10,12,14,0) 100%)"></div>
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,12,14,0.45) 0%, rgba(10,12,14,0) 28%, rgba(10,12,14,0) 78%, rgba(10,12,14,0.35) 100%)"></div>
+<div class="hs-ba-drive" aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none">
+<div class="hs-ba-seam" style="position: absolute; top: 0; bottom: 0; width: 0">
+<div style="position: absolute; top: 0; bottom: 0; left: -160px; width: 320px; background: linear-gradient(90deg, rgba(var(--ac-rgb),0) 0%, rgba(var(--ac-hi-rgb),0.16) 50%, rgba(var(--ac-rgb),0) 100%)"></div>
+<div style="position: absolute; top: 0; bottom: 0; left: -1px; width: 2px; background: linear-gradient(180deg, rgba(var(--ac-hi-rgb),0) 0%, var(--ac-hi) 18%, var(--ac-hi) 82%, rgba(var(--ac-hi-rgb),0) 100%); box-shadow: 0 0 18px 2px rgba(var(--ac-rgb),0.6)"></div>
+<div style="position: absolute; top: 40%; left: -28px; width: 56px; height: 56px; border-radius: 50px; border: 1.5px solid var(--ac-hi); background: rgba(10,12,14,0.55); backdrop-filter: blur(6px); display: flex; align-items: center; justify-content: center; box-shadow: rgba(var(--ac-rgb),0.35) 0 0 0 1px, rgba(var(--ac-rgb),0.55) 0 10px 34px -8px">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--ac-hi)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"></path></svg>
+</div>
+</div>
+</div>
+<div style="position: relative; width: 100%; max-width: 1280px; margin: 0 auto; padding: clamp(150px, 26vh, 300px) 24px 72px; display: flex; justify-content: center; text-align: center">
+<div style="width: 100%; max-width: 880px; display: flex; flex-direction: column; align-items: center">
+<p style="margin: 0 0 20px; font-size: 13px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ac)">Exotic &amp; Native Hardwood · Custom Staircases</p>
+<h1 id="hero-title" style="margin: 0; font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: clamp(48px, 7vw, 96px); line-height: 0.98">Floors crafted to <em style="color: var(--ac)">outlast</em> the house.</h1>
+<p style="margin: 28px auto 0; max-width: 600px; font-size: 18px; color: rgba(242,239,232,0.82)">Experts in the installation and finishing of exotic and native hardwood flooring and custom staircases.</p>
+<div style="margin-top: 36px; display: flex; flex-wrap: wrap; justify-content: center; gap: 14px">
+<a class="hs-btn-gold" href="#contact" style="display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 28px; border-radius: 0; background: var(--ac); color: var(--ac-ink); font-size: 15px; font-weight: 700; text-decoration: none">Request an Estimate <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+<!-- SERVICE STRIP -->
+<div id="strip" style="overflow: hidden; border-top: 1px solid rgba(242,239,232,0.14); border-bottom: 1px solid rgba(242,239,232,0.14); background: #0f1418; padding: 18px 0" aria-label="Our services">
+<div class="hs-marquee" style="gap: 0; align-items: center; text-transform: uppercase; font-family: var(--fd); font-weight: var(--fdw); letter-spacing: 0.06em; font-size: 22px; white-space: nowrap; color: rgba(242,239,232,0.85)">
+<span style="padding: 0 28px">Hardwood Installation</span><span aria-hidden="true" style="display: inline-flex; align-items: center; color: var(--ac)"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12.9 7.6 16.4 11.1 24 12C16.4 12.9 12.9 16.4 12 24C11.1 16.4 7.6 12.9 0 12C7.6 11.1 11.1 7.6 12 0Z"></path></svg></span>
+<span style="padding: 0 28px">Sanding &amp; Finishing</span><span aria-hidden="true" style="display: inline-flex; align-items: center; color: var(--ac)"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12.9 7.6 16.4 11.1 24 12C16.4 12.9 12.9 16.4 12 24C11.1 16.4 7.6 12.9 0 12C7.6 11.1 11.1 7.6 12 0Z"></path></svg></span>
+<span style="padding: 0 28px">Recoating</span><span aria-hidden="true" style="display: inline-flex; align-items: center; color: var(--ac)"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12.9 7.6 16.4 11.1 24 12C16.4 12.9 12.9 16.4 12 24C11.1 16.4 7.6 12.9 0 12C7.6 11.1 11.1 7.6 12 0Z"></path></svg></span>
+<span style="padding: 0 28px">Custom Staircases</span><span aria-hidden="true" style="display: inline-flex; align-items: center; color: var(--ac)"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12.9 7.6 16.4 11.1 24 12C16.4 12.9 12.9 16.4 12 24C11.1 16.4 7.6 12.9 0 12C7.6 11.1 11.1 7.6 12 0Z"></path></svg></span>
+<span style="padding: 0 28px">Exotic Species</span><span aria-hidden="true" style="display: inline-flex; align-items: center; color: var(--ac)"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12.9 7.6 16.4 11.1 24 12C16.4 12.9 12.9 16.4 12 24C11.1 16.4 7.6 12.9 0 12C7.6 11.1 11.1 7.6 12 0Z"></path></svg></span>
+<span style="padding: 0 28px">Native Species</span><span aria-hidden="true" style="display: inline-flex; align-items: center; color: var(--ac)"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12.9 7.6 16.4 11.1 24 12C16.4 12.9 12.9 16.4 12 24C11.1 16.4 7.6 12.9 0 12C7.6 11.1 11.1 7.6 12 0Z"></path></svg></span>
+<span style="padding: 0 28px">Custom Work</span><span aria-hidden="true" style="display: inline-flex; align-items: center; color: var(--ac)"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12.9 7.6 16.4 11.1 24 12C16.4 12.9 12.9 16.4 12 24C11.1 16.4 7.6 12.9 0 12C7.6 11.1 11.1 7.6 12 0Z"></path></svg></span>
+<span style="padding: 0 28px">Hardwood Installation</span><span aria-hidden="true" style="display: inline-flex; align-items: center; color: var(--ac)"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12.9 7.6 16.4 11.1 24 12C16.4 12.9 12.9 16.4 12 24C11.1 16.4 7.6 12.9 0 12C7.6 11.1 11.1 7.6 12 0Z"></path></svg></span>
+<span style="padding: 0 28px">Sanding &amp; Finishing</span><span aria-hidden="true" style="display: inline-flex; align-items: center; color: var(--ac)"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12.9 7.6 16.4 11.1 24 12C16.4 12.9 12.9 16.4 12 24C11.1 16.4 7.6 12.9 0 12C7.6 11.1 11.1 7.6 12 0Z"></path></svg></span>
+<span style="padding: 0 28px">Recoating</span><span aria-hidden="true" style="display: inline-flex; align-items: center; color: var(--ac)"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12.9 7.6 16.4 11.1 24 12C16.4 12.9 12.9 16.4 12 24C11.1 16.4 7.6 12.9 0 12C7.6 11.1 11.1 7.6 12 0Z"></path></svg></span>
+<span style="padding: 0 28px">Custom Staircases</span><span aria-hidden="true" style="display: inline-flex; align-items: center; color: var(--ac)"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12.9 7.6 16.4 11.1 24 12C16.4 12.9 12.9 16.4 12 24C11.1 16.4 7.6 12.9 0 12C7.6 11.1 11.1 7.6 12 0Z"></path></svg></span>
+<span style="padding: 0 28px">Exotic Species</span><span aria-hidden="true" style="display: inline-flex; align-items: center; color: var(--ac)"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12.9 7.6 16.4 11.1 24 12C16.4 12.9 12.9 16.4 12 24C11.1 16.4 7.6 12.9 0 12C7.6 11.1 11.1 7.6 12 0Z"></path></svg></span>
+<span style="padding: 0 28px">Native Species</span><span aria-hidden="true" style="display: inline-flex; align-items: center; color: var(--ac)"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12.9 7.6 16.4 11.1 24 12C16.4 12.9 12.9 16.4 12 24C11.1 16.4 7.6 12.9 0 12C7.6 11.1 11.1 7.6 12 0Z"></path></svg></span>
+<span style="padding: 0 28px">Custom Work</span><span aria-hidden="true" style="display: inline-flex; align-items: center; color: var(--ac)"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12.9 7.6 16.4 11.1 24 12C16.4 12.9 12.9 16.4 12 24C11.1 16.4 7.6 12.9 0 12C7.6 11.1 11.1 7.6 12 0Z"></path></svg></span>
+</div>
+</div>
+
+<!-- STATS -->
+<section aria-label="At a glance" style="background: var(--ac)">
+<div style="max-width: 1280px; margin: 0 auto; padding: 56px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: rgba(255,255,255,0.55); background-clip: content-box">
+<div style="background: var(--ac); padding: 28px 24px">
+<p style="margin: 0; font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: 56px; line-height: 1; color: #0a0c0e">1991</p>
+<p style="margin: 10px 0 0; font-size: 15px; font-weight: 500; color: #1c1612">Incorporated in St. Petersburg, FL</p>
+</div>
+<div style="background: var(--ac); padding: 28px 24px">
+<p style="margin: 0; font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: 56px; line-height: 1; color: #0a0c0e">A+</p>
+<p style="margin: 10px 0 0; font-size: 15px; font-weight: 500; color: #1c1612">Better Business Bureau rating</p>
+</div>
+<div style="background: var(--ac); padding: 28px 24px">
+<p style="margin: 0; font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: 56px; line-height: 1; color: #0a0c0e">9</p>
+<p style="margin: 10px 0 0; font-size: 15px; font-weight: 500; color: #1c1612">Premium European &amp; American flooring brands</p>
+</div>
+<div style="background: var(--ac); padding: 28px 24px">
+<p style="margin: 0; font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: 56px; line-height: 1; color: #0a0c0e">C9359</p>
+<p style="margin: 10px 0 0; font-size: 15px; font-weight: 500; color: #1c1612">State-licensed flooring contractor</p>
+</div>
+</div>
+</section>
+
+<!-- DIFFERENCE -->
+<section id="collections" aria-labelledby="diff-title" style="max-width: 1280px; margin: 0 auto; padding: 48px 24px 96px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div class="hs-wrapfix" style="flex: 1 1 460px">
+<p style="margin: 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ac)">Real Hardwood</p>
+<h2 id="diff-title" style="margin: 0; font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: clamp(38px, 4.6vw, 60px); line-height: 1.04">Specialists, not generalists.</h2>
+<p style="margin: 24px 0 0; font-size: 17px; color: rgba(242,239,232,0.8)">Hardwood is all we do. Walk our showroom to compare exotic and native species side by side, then let our crew handle the inspection, installation and finish — one team accountable from the first plank to the final coat.</p>
+<ul style="margin: 28px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 16px">
+<li style="display: flex; gap: 12px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="var(--ac)" stroke-width="1.8" aria-hidden="true" style="flex: none; margin-top: 4px"><path d="M4 10l4 4 8-8"></path></svg>On-site inspection of your installation area before you commit</li>
+<li style="display: flex; gap: 12px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="var(--ac)" stroke-width="1.8" aria-hidden="true" style="flex: none; margin-top: 4px"><path d="M4 10l4 4 8-8"></path></svg>European wide-plank collections from Hakwood and Schotten &amp; Hansen</li>
+<li style="display: flex; gap: 12px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="var(--ac)" stroke-width="1.8" aria-hidden="true" style="flex: none; margin-top: 4px"><path d="M4 10l4 4 8-8"></path></svg>Custom staircases built and finished to match your floors</li>
+</ul>
+<a class="hs-btn-ghost" href="#contact" style="margin-top: 36px; display: inline-flex; align-items: center; min-height: 48px; padding: 0 26px; border-radius: 50px; border: 1px solid rgba(242,239,232,0.35); color: #f2efe8; font-size: 15px; font-weight: 600; text-decoration: none">Schedule an inspection</a>
+</div>
+<div class="hs-wrapfix" style="flex: 1 1 460px; aspect-ratio: 4 / 5; max-height: 620px; border-radius: 4px; overflow: hidden; background: #0f1418; border: 1px solid rgba(242,239,232,0.14)"><img src="./assets/d26b271199a0bb0e88b25f8bbe3dc04f.jpg" alt="Hardwood Specialists showroom with shelves of hardwood flooring samples" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" aria-labelledby="svc-title" style="background: #ffffff; color: #0a0c0e">
+<div style="max-width: 1280px; margin: 0 auto; padding: 96px 24px">
+<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 20px">
+<div>
+<p style="margin: 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #7a5d26">Services</p>
+<h2 id="svc-title" style="margin: 0; font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: clamp(38px, 4.6vw, 60px); line-height: 1.04; color: #0a0c0e">Everything your floor needs.</h2>
+</div>
+<p style="margin: 0; max-width: 640px; font-size: 17px; color: #0a0c0e">From new installations to bringing a tired floor back to life, every job is handled by hardwood specialists.</p>
+</div>
+<div style="margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px">
+<article class="hs-card" style="overflow: hidden; padding: 32px 28px; border-radius: 4px; border: 1px solid rgba(242,239,232,0.14); background: #0a0c0e; display: flex; flex-direction: column; gap: 14px">
+<div style="margin: -32px -28px 6px; aspect-ratio: 4 / 3; overflow: hidden; border-bottom: 1px solid rgba(242,239,232,0.14)"><img src="./assets/38d01bc97cc3ffdc87074032f2abe99b.jpg" alt="Living area with an installed exotic hardwood floor" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+<h3 style="margin: 0; font-size: 21px; font-weight: 600; color: #f2efe8">Hardwood Installation</h3>
+<p style="margin: 0; font-size: 15px; color: rgba(242,239,232,0.75)">Exotic and native species, solid or engineered, installed by specialists who do nothing else.</p>
+<a href="#contact" style="margin-top: auto; font-size: 14px; font-weight: 600">Get an installation quote</a>
+</article>
+<article class="hs-card" style="overflow: hidden; padding: 32px 28px; border-radius: 4px; border: 1px solid rgba(242,239,232,0.14); background: #0a0c0e; display: flex; flex-direction: column; gap: 14px">
+<div style="margin: -32px -28px 6px; aspect-ratio: 4 / 3; overflow: hidden; border-bottom: 1px solid rgba(242,239,232,0.14)"><img src="./assets/e86f2dea46afad67601ed45c6c3ec16a.jpg" alt="Hardwood staircase treads with a dark railing" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+<h3 style="margin: 0; font-size: 21px; font-weight: 600; color: #f2efe8">Custom Staircases</h3>
+<p style="margin: 0; font-size: 15px; color: rgba(242,239,232,0.75)">Treads, risers and nosings built and finished to flow seamlessly from your floors.</p>
+<a href="#gallery" style="margin-top: auto; font-size: 14px; font-weight: 600">See staircase projects</a>
+</article>
+<article class="hs-card" style="overflow: hidden; padding: 32px 28px; border-radius: 4px; border: 1px solid rgba(242,239,232,0.14); background: #0a0c0e; display: flex; flex-direction: column; gap: 14px">
+<div style="margin: -32px -28px 6px; aspect-ratio: 4 / 3; overflow: hidden; border-bottom: 1px solid rgba(242,239,232,0.14)"><img src="./assets/1b095b944fcc3988f57c0acf2c591cd3.jpg" alt="Dining room with a refinished dark hardwood floor" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+<h3 style="margin: 0; font-size: 21px; font-weight: 600; color: #f2efe8">Recoating &amp; Refinishing</h3>
+<p style="margin: 0; font-size: 15px; color: rgba(242,239,232,0.75)">Restore the luster of an existing floor with a fresh protective finish — often without a full sand.</p>
+<a href="#contact" style="margin-top: auto; font-size: 14px; font-weight: 600">Ask about recoating</a>
+</article>
+<article class="hs-card" style="overflow: hidden; padding: 32px 28px; border-radius: 4px; border: 1px solid rgba(242,239,232,0.14); background: #0a0c0e; display: flex; flex-direction: column; gap: 14px">
+<div style="margin: -32px -28px 6px; aspect-ratio: 4 / 3; overflow: hidden; border-bottom: 1px solid rgba(242,239,232,0.14)"><img src="./assets/d11608b5e66d14adfc42615f8703e5bf.jpg" alt="Hand-crafted hardwood inlay border samples in the showroom" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+<h3 style="margin: 0; font-size: 21px; font-weight: 600; color: #f2efe8">Custom Work</h3>
+<p style="margin: 0; font-size: 15px; color: rgba(242,239,232,0.75)">Borders, inlays, patterns and one-of-a-kind details designed around your space.</p>
+<a href="#gallery" style="margin-top: auto; font-size: 14px; font-weight: 600">View custom work</a>
+</article>
+</div>
+</div>
+</section>
+
+<!-- BRANDS -->
+<section id="brands" hidden="" aria-labelledby="brands-title" style="max-width: 1280px; margin: 0 auto; padding: 96px 24px">
+<p style="margin: 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ac); text-align: center">Brands we carry</p>
+<h2 id="brands-title" style="margin: 0 auto; max-width: 760px; text-align: center; font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: clamp(34px, 4vw, 52px); line-height: 1.08">The world's finest hardwood, under one roof in St. Pete.</h2>
+<div style="margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: rgba(242,239,232,0.14); border: 1px solid rgba(242,239,232,0.14)">
+<div style="background: #0a0c0e; min-height: 110px; display: flex; align-items: center; justify-content: center; font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: 24px">Hakwood</div>
+<div style="background: #0a0c0e; min-height: 110px; display: flex; align-items: center; justify-content: center; font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: 24px">Schotten &amp; Hansen</div>
+<div style="background: #0a0c0e; min-height: 110px; display: flex; align-items: center; justify-content: center; font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: 24px">Mirage</div>
+<div style="background: #0a0c0e; min-height: 110px; display: flex; align-items: center; justify-content: center; font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: 24px">Provenza</div>
+<div style="background: #0a0c0e; min-height: 110px; display: flex; align-items: center; justify-content: center; font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: 24px">Grafch</div>
+<div style="background: #0a0c0e; min-height: 110px; display: flex; align-items: center; justify-content: center; font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: 24px">Boischamois</div>
+<div style="background: #0a0c0e; min-height: 110px; display: flex; align-items: center; justify-content: center; font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: 24px">Grato</div>
+<div style="background: #0a0c0e; min-height: 110px; display: flex; align-items: center; justify-content: center; font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: 24px">Vision Wood</div>
+<div style="background: #0a0c0e; min-height: 110px; display: flex; align-items: center; justify-content: center; font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: 24px">Teka Hardwood</div>
+</div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" aria-labelledby="gal-title" style="max-width: 1280px; margin: 0 auto; padding: 96px 24px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<div>
+<p style="margin: 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ac)">Gallery</p>
+<h2 id="gal-title" style="margin: 0; font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: clamp(38px, 4.6vw, 60px); line-height: 1.04">Recent work around Tampa Bay.</h2>
+</div>
+<button class="hs-btn-ghost" type="button" onClick="{{toggleAll}}" aria-expanded="{{showAll}}" aria-controls="gal-grid" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 26px; border-radius: 50px; border: 1px solid rgba(242,239,232,0.35); background: transparent; color: #f2efe8; font: inherit; font-size: 15px; font-weight: 600; cursor: pointer">{{toggleLabel}}</button>
+<div id="gal-grid" style="margin-top: 48px; column-width: 340px; column-gap: 20px">
+<sc-for list="{{galleryItems}}" as="g" hint-placeholder-count="9">
+<figure style="margin: 0 0 20px; break-inside: avoid">
+<button class="hs-gal-item" type="button" onClick="{{g.open}}" aria-label="{{g.label}}" style="display: block; width: 100%; padding: 0; border: 1px solid rgba(242,239,232,0.14); border-radius: 4px; overflow: hidden; background: #0f1418; cursor: zoom-in">
+<img src="{{g.src}}" alt="{{g.alt}}" loading="lazy" style="display: block; width: 100%; height: auto">
+</button>
+<figcaption style="margin-top: 10px; font-size: 14px; color: rgba(242,239,232,0.75)">{{g.cap}}</figcaption>
+</figure>
+</sc-for>
+</div>
+<sc-if value="{{lbOpen}}" hint-placeholder-val="{{false}}">
+<div role="dialog" aria-modal="true" aria-label="{{lbLabel}}" style="position: fixed; inset: 0; z-index: 100; background: rgba(5,6,7,0.94); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 72px 16px 24px; gap: 16px">
+<button type="button" onClick="{{lbClose}}" aria-label="Close gallery" style="position: absolute; top: 16px; right: 16px; width: 48px; height: 48px; border-radius: 50px; border: 1px solid rgba(242,239,232,0.3); background: rgba(10,12,14,0.6); color: #f2efe8; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"></path></svg></button>
+<img src="{{lbSrc}}" alt="{{lbAlt}}" style="max-width: min(1200px, 100%); max-height: 74vh; width: auto; height: auto; object-fit: contain; border-radius: 4px; box-shadow: 0 30px 80px -20px rgba(0,0,0,0.8)">
+<div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: center">
+<button type="button" onClick="{{lbPrev}}" aria-label="Previous photo" style="width: 48px; height: 48px; border-radius: 50px; border: 1px solid rgba(242,239,232,0.3); background: transparent; color: #f2efe8; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M11 3L5 9l6 6"></path></svg></button>
+<p style="margin: 0; text-align: center; min-width: 220px"><span style="display: block; font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: 22px; color: #f2efe8">{{lbCap}}</span><span style="font-size: 13px; letter-spacing: 0.14em; color: var(--ac)">{{lbCount}}</span></p>
+<button type="button" onClick="{{lbNext}}" aria-label="Next photo" style="width: 48px; height: 48px; border-radius: 50px; border: 1px solid rgba(242,239,232,0.3); background: transparent; color: #f2efe8; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 3l6 6-6 6"></path></svg></button>
+</div>
+</div>
+</sc-if>
+</div></section>
+
+<!-- REVIEWS -->
+<section id="reviews" hidden="" aria-labelledby="rev-title" style="background: #0f1418; border-top: 1px solid rgba(242,239,232,0.14); border-bottom: 1px solid rgba(242,239,232,0.14)">
+<div style="max-width: 1280px; margin: 0 auto; padding: 96px 24px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<div>
+<p style="margin: 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ac)">Reviews</p>
+<h2 id="rev-title" style="margin: 0; font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: clamp(38px, 4.6vw, 60px); line-height: 1.04">What homeowners say.</h2>
+</div>
+<div style="display: flex; align-items: center; gap: 14px">
+<span style="font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: 48px; line-height: 1; color: var(--ac)">[4.X]</span>
+<span style="font-size: 14px; color: rgba(242,239,232,0.75)">on Google<br>[N] reviews</span>
+</div>
+</div>
+<div style="margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
+<blockquote style="margin: 0; padding: 32px 28px; border-radius: 4px; border: 1px solid rgba(242,239,232,0.14); background: #0a0c0e"><p style="margin: 0; font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: 22px; line-height: 1.35">“[Paste a real review from the Google profile]”</p><footer style="margin-top: 18px; font-size: 14px; color: rgba(242,239,232,0.75)">— [Reviewer name] · Google</footer></blockquote>
+<blockquote style="margin: 0; padding: 32px 28px; border-radius: 4px; border: 1px solid rgba(242,239,232,0.14); background: #0a0c0e"><p style="margin: 0; font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: 22px; line-height: 1.35">“[Paste a real review from the Google profile]”</p><footer style="margin-top: 18px; font-size: 14px; color: rgba(242,239,232,0.75)">— [Reviewer name] · Google</footer></blockquote>
+<blockquote style="margin: 0; padding: 32px 28px; border-radius: 4px; border: 1px solid rgba(242,239,232,0.14); background: #0a0c0e"><p style="margin: 0; font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: 22px; line-height: 1.35">“[Paste a real review from the Google profile]”</p><footer style="margin-top: 18px; font-size: 14px; color: rgba(242,239,232,0.75)">— [Reviewer name] · Google</footer></blockquote>
+</div>
+</div>
+</section>
+
+<!-- SHOWROOM -->
+<section id="showroom" aria-labelledby="show-title" style="background: #0f1418; border-top: 1px solid rgba(242,239,232,0.14); border-bottom: 1px solid rgba(242,239,232,0.14)">
+<div style="max-width: 1280px; margin: 0 auto; padding: 96px 24px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<div style="max-width: 640px">
+<p style="margin: 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ac)">The Showroom</p>
+<h2 id="show-title" style="margin: 0; font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: clamp(38px, 4.6vw, 60px); line-height: 1.04">See it, touch it, choose it in person.</h2>
+<p style="margin: 20px 0 0; font-size: 17px; color: rgba(242,239,232,0.8)">Walls of full-size boards, hand-crafted inlays and antique-style parquet panels — all under one roof at 2595 30th Avenue North.</p>
+</div>
+<a class="hs-btn-gold" href="#contact" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 26px; border-radius: 0; background: var(--ac); color: var(--ac-ink); font-size: 15px; font-weight: 700; text-decoration: none">Book a Showroom Visit</a>
+</div>
+<div class="hs-show-grid" style="margin-top: 48px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 240px; gap: 16px">
+<figure class="hs-show-a" style="margin: 0; grid-column: span 2; grid-row: span 2; position: relative; border-radius: 4px; overflow: hidden"><img src="./assets/fc97e4ee8e9e8901d194e1448ee769d8.jpg" alt="Main showroom floor with sample columns, wall displays and inlay panels" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"><figcaption style="position: absolute; left: 16px; bottom: 14px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 12px; border-radius: 50px; background: rgba(10,12,14,0.7)">Main showroom</figcaption></figure>
+<figure class="hs-show-b" style="margin: 0; grid-row: span 2; position: relative; border-radius: 4px; overflow: hidden"><img src="./assets/d11608b5e66d14adfc42615f8703e5bf.jpg" alt="Wall of nine hand-crafted hardwood inlay border samples" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"><figcaption style="position: absolute; left: 16px; bottom: 14px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 12px; border-radius: 50px; background: rgba(10,12,14,0.7)">Inlay borders</figcaption></figure>
+<figure class="hs-show-b" style="margin: 0; grid-row: span 2; position: relative; border-radius: 4px; overflow: hidden"><img src="./assets/72659310536746efea2f1ee2b9a84e79.jpg" alt="Wood medallion and wall of oak plank samples" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"><figcaption style="position: absolute; left: 16px; bottom: 14px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 12px; border-radius: 50px; background: rgba(10,12,14,0.7)">Medallions</figcaption></figure>
+<figure class="hs-show-a" style="margin: 0; grid-column: span 2; grid-row: span 2; position: relative; border-radius: 4px; overflow: hidden"><img src="./assets/81db86a9b4e76a5188d831bdcf2abd8e.jpg" alt="Wall of 21 large-format hardwood finish samples under track lighting" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"><figcaption style="position: absolute; left: 16px; bottom: 14px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 12px; border-radius: 50px; background: rgba(10,12,14,0.7)">Finish sample wall</figcaption></figure>
+<figure class="hs-show-a" style="margin: 0; grid-column: span 2; grid-row: span 2; position: relative; border-radius: 4px; overflow: hidden"><img src="./assets/cb3e0630787dba80188122b9b1fdcaa7.jpg" alt="Antique-style Versailles parquet panels with wide oak planks above" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"><figcaption style="position: absolute; left: 16px; bottom: 14px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 12px; border-radius: 50px; background: rgba(10,12,14,0.7)">Parquet panels</figcaption></figure>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" aria-labelledby="contact-title" style="background: #ffffff; color: #0a0c0e; box-shadow: 0 0 0 100vmax #ffffff; clip-path: inset(0 -100vmax); max-width: 1280px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 56px">
+<div class="hs-wrapfix" style="flex: 1 1 380px">
+<p style="margin: 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #7a5d26">Contact</p>
+<h2 id="contact-title" style="margin: 0; font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: clamp(38px, 4.6vw, 60px); line-height: 1.04">Let's talk about your floors.</h2>
+<p style="margin: 20px 0 0; font-size: 17px; color: rgba(10,12,14,0.8)">Tell us about your project and we'll schedule a showroom visit or on-site inspection.</p>
+<dl style="margin: 36px 0 0; display: grid; grid-template-columns: minmax(84px, 110px) minmax(0, 1fr); gap: 16px 20px; font-size: 16px">
+<dt style="color: #7a5d26; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; padding-top: 3px">Showroom</dt><dd style="margin: 0">2595 30th Avenue North<br>St. Petersburg, FL 33713</dd>
+<dt style="color: #7a5d26; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; padding-top: 3px">Phone</dt><dd style="margin: 0"><a href="tel:+17273229663" style="color: #0a0c0e">(727) 322-9663</a></dd>
+<dt style="color: #7a5d26; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; padding-top: 3px">Email</dt><dd style="margin: 0"><a href="mailto:info@hardwoodspecialists.com" style="color: #0a0c0e">info@hardwoodspecialists.com</a></dd>
+<dt style="color: #7a5d26; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; padding-top: 3px">Hours</dt><dd style="margin: 0">Mon–Fri · 9:00am – 5:00pm<br><span style="color: rgba(10,12,14,0.72)">Sat–Sun · Closed</span></dd>
+</dl>
+<a class="hs-card" href="https://maps.app.goo.gl/6oSgEABUzBe8QkEK8" style="margin-top: 32px; position: relative; display: block; aspect-ratio: 16 / 9; border-radius: 4px; overflow: hidden; border: 1px solid rgba(242,239,232,0.14); text-decoration: none; color: #f2efe8">
+<img src="./assets/27553a337abb7710c86562ca7b2c8573.jpg" alt="Hardwood Specialists storefront window and company van on 30th Avenue North" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<span style="position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 20px 16px; background: linear-gradient(180deg, rgba(10,12,14,0) 0%, rgba(10,12,14,0.9) 100%); display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 14px; font-weight: 600">Our storefront on 30th Ave N<span style="color: var(--ac); white-space: nowrap">Get directions →</span></span>
+</a>
+</div>
+<div class="hs-wrapfix" style="flex: 1 1 460px; padding: clamp(24px, 5vw, 40px); border-radius: 4px; border: 1px solid rgba(10,12,14,0.2); background: #f6f3ef">
+<sc-if value="{{sent}}" hint-placeholder-val="{{false}}">
+<div role="status" style="min-height: 420px; display: flex; flex-direction: column; justify-content: center; gap: 12px">
+<p style="margin: 0; font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: 40px; line-height: 1.05">Thank you — we'll be in touch.</p>
+<p style="margin: 0; color: rgba(10,12,14,0.78)">Our team will contact you to schedule your visit. Need us sooner? Call <a href="tel:+17273229663">(727) 322-9663</a>.</p>
+<button type="button" onClick="{{reset}}" style="align-self: flex-start; margin-top: 12px; min-height: 44px; padding: 0 22px; border-radius: 50px; border: 1px solid rgba(10,12,14,0.41); background: transparent; color: #0a0c0e; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Send another request</button>
+</div>
+</sc-if>
+<sc-if value="{{notSent}}" hint-placeholder-val="{{true}}">
+<form onSubmit="{{submit}}" style="display: flex; flex-direction: column; gap: 18px">
+<h3 style="margin: 0 0 4px; font-size: 22px; font-weight: 600">Request an estimate</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 18px">
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 500">Full name<input required="" name="name" autocomplete="name" style="min-height: 48px; padding: 0 16px; border-radius: 4px; border: 1px solid rgba(10,12,14,0.31); background: #ffffff; color: #0a0c0e; font: inherit; font-size: 16px"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 500">Phone<input required="" type="tel" name="phone" autocomplete="tel" style="min-height: 48px; padding: 0 16px; border-radius: 4px; border: 1px solid rgba(10,12,14,0.31); background: #ffffff; color: #0a0c0e; font: inherit; font-size: 16px"></label>
+</div>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 500">Email<input type="email" name="email" autocomplete="email" style="min-height: 48px; padding: 0 16px; border-radius: 4px; border: 1px solid rgba(10,12,14,0.31); background: #ffffff; color: #0a0c0e; font: inherit; font-size: 16px"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 500">Project type<select name="type" style="min-height: 48px; padding: 0 12px; border-radius: 4px; border: 1px solid rgba(10,12,14,0.31); background: #ffffff; color: #0a0c0e; font: inherit; font-size: 16px"><option>New hardwood installation</option><option>Custom staircase</option><option>Recoating / refinishing</option><option>Custom work</option><option>Not sure yet</option></select></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 500">Tell us about your project<textarea name="message" rows="4" placeholder="Rooms, approximate square footage, timeline…" style="padding: 12px 16px; border-radius: 4px; border: 1px solid rgba(10,12,14,0.31); background: #ffffff; color: #0a0c0e; font: inherit; font-size: 16px; resize: vertical"></textarea></label>
+<button class="hs-btn-gold" type="submit" style="margin-top: 6px; min-height: 52px; border-radius: 0; border: 0; background: var(--ac); color: var(--ac-ink); font: inherit; font-size: 15px; font-weight: 700; cursor: pointer">Request My Estimate</button>
+<p style="margin: 0; font-size: 13px; color: rgba(10,12,14,0.72)">Prefer to talk? Call <a href="tel:+17273229663">(727) 322-9663</a>, Mon–Fri 9am–5pm.</p>
+</form>
+</sc-if>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer style="border-top: 1px solid rgba(242,239,232,0.14); background: #000000">
+<div style="max-width: 1280px; margin: 0 auto; padding: 48px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px; font-size: 14px; color: rgba(242,239,232,0.72)">
+<div style="display: flex; flex-direction: column; gap: 8px; max-width: 360px">
+<span style="font-family: var(--fd); font-weight: var(--fdw); letter-spacing: var(--fdt); font-size: 26px; color: #f2efe8">Hardwood Specialists</span>
+<span>Experts in the installation and finishing of exotic and native hardwood flooring and custom staircases.</span>
+</div>
+<nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: flex-start">
+<a class="hs-navlink" href="#collections">Specialist</a>
+<a class="hs-navlink" href="#services">Services</a>
+<!-- hidden for now: <a class="hs-navlink" href="#brands">Brands</a> -->
+<a class="hs-navlink" href="#gallery">Gallery</a>
+<a class="hs-navlink" href="#showroom">Showroom</a>
+<a class="hs-navlink" href="#contact">Contact</a>
+</nav>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span>2595 30th Ave N, St. Petersburg, FL 33713</span>
+<a href="tel:+17273229663" style="color: #f2efe8">(727) 322-9663</a>
+<span>Lic. #C9359 · © 2026 Hardwood Specialists, Inc.</span>
+</div>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"heroAnimation":{"editor":"enum","options":["Falling planks","Sweep reveal"],"default":"Falling planks","section":"Hero"},"accentColor":{"editor":"enum","options":["Gold (original)","Logo maroon #330000"],"default":"Gold (original)","section":"Color"},"fontStyle":{"editor":"enum","options":["Hanken Grotesk","Geist","Manrope","Classic (DM Sans + Serif)"],"default":"Hanken Grotesk","section":"Typography"},"$preview":{"width":1440,"height":6400}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { menuOpen: false, sent: false, heroWrapH: 'auto', heroTop: '0px', heroPull: '0px', solid: false, stL: '0px', stT: '0px', stW: '100%', stH: '100%', showAll: false, lb: -1 };
+    this.tiles = [{"l":"0.000%","t":"70.490%","w":"0.448%","h":"21.739%","bs":"22341.357% 460.000%","bp":"0.000% 90.071%","cp":"polygon(-145.48% 0.00%, 100.00% 0.00%, -14925.51% 100.00%, -15518.50% 100.00%)","d":"0.200s","rot":"-5.8deg"},{"l":"0.000%","t":"70.490%","w":"1.546%","h":"21.739%","bs":"6466.851% 460.000%","bp":"0.000% 90.071%","cp":"polygon(28.95% 0.00%, 100.00% 0.00%, -4148.64% 100.00%, -4320.29% 100.00%)","d":"0.240s","rot":"-8.7deg"},{"l":"0.000%","t":"70.490%","w":"2.645%","h":"21.739%","bs":"3780.582% 460.000%","bp":"0.000% 90.071%","cp":"polygon(58.46% 0.00%, 100.00% 0.00%, -2324.99% 100.00%, -2425.34% 100.00%)","d":"0.280s","rot":"-2.3deg"},{"l":"0.000%","t":"70.490%","w":"3.744%","h":"21.739%","bs":"2671.053% 460.000%","bp":"0.000% 90.071%","cp":"polygon(70.65% 0.00%, 100.00% 0.00%, -1571.76% 100.00%, -1642.65% 100.00%)","d":"0.320s","rot":"-7.6deg"},{"l":"0.000%","t":"70.490%","w":"4.843%","h":"21.739%","bs":"2065.011% 460.000%","bp":"0.000% 90.071%","cp":"polygon(77.31% 0.00%, 100.00% 0.00%, -1160.33% 100.00%, -1215.14% 100.00%)","d":"0.360s","rot":"-9.5deg"},{"l":"0.000%","t":"70.490%","w":"5.941%","h":"21.739%","bs":"1683.123% 460.000%","bp":"0.000% 90.071%","cp":"polygon(81.51% 0.00%, 100.00% 0.00%, -901.07% 100.00%, -945.74% 100.00%)","d":"0.400s","rot":"-2.2deg"},{"l":"0.000%","t":"92.229%","w":"2.279%","h":"7.771%","bs":"4387.633% 1286.905%","bp":"0.000% 100.000%","cp":"polygon(-5.53% 0.00%, 100.00% 0.00%, -319.81% 100.00%, -447.45% 100.00%)","d":"0.440s","rot":"9.2deg"},{"l":"0.000%","t":"92.229%","w":"4.684%","h":"7.771%","bs":"2134.755% 1286.905%","bp":"0.000% 100.000%","cp":"polygon(48.65% 0.00%, 100.00% 0.00%, -93.50% 100.00%, -155.60% 100.00%)","d":"0.480s","rot":"6.6deg"},{"l":"0.000%","t":"70.490%","w":"7.040%","h":"21.739%","bs":"1420.437% 460.000%","bp":"0.000% 90.071%","cp":"polygon(84.39% 0.00%, 100.00% 0.00%, -722.74% 100.00%, -760.44% 100.00%)","d":"0.520s","rot":"5.8deg"},{"l":"0.000%","t":"70.490%","w":"8.139%","h":"21.739%","bs":"1228.678% 460.000%","bp":"0.000% 90.071%","cp":"polygon(86.50% 0.00%, 100.00% 0.00%, -592.56% 100.00%, -625.17% 100.00%)","d":"0.560s","rot":"-6.1deg"},{"l":"0.000%","t":"70.490%","w":"9.238%","h":"21.739%","bs":"1082.535% 460.000%","bp":"0.000% 90.071%","cp":"polygon(88.11% 0.00%, 100.00% 0.00%, -493.34% 100.00%, -522.08% 100.00%)","d":"0.600s","rot":"0.8deg"},{"l":"0.000%","t":"70.490%","w":"10.336%","h":"21.739%","bs":"967.462% 460.000%","bp":"0.000% 90.071%","cp":"polygon(89.37% 0.00%, 100.00% 0.00%, -415.22% 100.00%, -440.90% 100.00%)","d":"0.640s","rot":"-4.9deg"},{"l":"0.000%","t":"92.229%","w":"7.090%","h":"7.771%","bs":"1410.512% 1286.905%","bp":"0.000% 100.000%","cp":"polygon(66.07% 0.00%, 100.00% 0.00%, -20.74% 100.00%, -61.78% 100.00%)","d":"0.680s","rot":"-7.2deg"},{"l":"0.000%","t":"92.229%","w":"9.495%","h":"7.771%","bs":"1053.200% 1286.905%","bp":"0.000% 100.000%","cp":"polygon(74.67% 0.00%, 100.00% 0.00%, 15.15% 100.00%, -15.49% 100.00%)","d":"0.720s","rot":"-8.7deg"},{"l":"0.000%","t":"70.490%","w":"11.435%","h":"21.739%","bs":"874.502% 460.000%","bp":"0.000% 90.071%","cp":"polygon(90.39% 0.00%, 100.00% 0.00%, -352.12% 100.00%, -375.33% 100.00%)","d":"0.760s","rot":"-6.3deg"},{"l":"0.000%","t":"70.490%","w":"12.534%","h":"21.739%","bs":"797.841% 460.000%","bp":"0.000% 90.071%","cp":"polygon(91.23% 0.00%, 100.00% 0.00%, -300.07% 100.00%, -321.25% 100.00%)","d":"0.800s","rot":"9.4deg"},{"l":"0.000%","t":"70.490%","w":"13.633%","h":"21.739%","bs":"733.537% 460.000%","bp":"0.000% 90.071%","cp":"polygon(91.94% 0.00%, 100.00% 0.00%, -256.42% 100.00%, -275.89% 100.00%)","d":"0.840s","rot":"7.2deg"},{"l":"0.000%","t":"70.490%","w":"14.731%","h":"21.739%","bs":"678.826% 460.000%","bp":"0.000% 90.071%","cp":"polygon(92.54% 0.00%, 100.00% 0.00%, -219.27% 100.00%, -237.29% 100.00%)","d":"0.880s","rot":"6.7deg"},{"l":"1.438%","t":"92.229%","w":"10.462%","h":"7.771%","bs":"955.867% 1286.905%","bp":"1.606% 100.000%","cp":"polygon(77.01% 0.00%, 100.00% 0.00%, 27.81% 100.00%, 0.00% 100.00%)","d":"0.920s","rot":"6.6deg"},{"l":"0.000%","t":"70.490%","w":"15.830%","h":"21.739%","bs":"631.709% 460.000%","bp":"0.000% 90.071%","cp":"polygon(93.06% 0.00%, 100.00% 0.00%, -187.29% 100.00%, -204.05% 100.00%)","d":"0.960s","rot":"-6.7deg"},{"l":"0.000%","t":"70.490%","w":"16.929%","h":"21.739%","bs":"590.709% 460.000%","bp":"0.000% 90.071%","cp":"polygon(93.51% 0.00%, 100.00% 0.00%, -159.45% 100.00%, -175.13% 100.00%)","d":"1.000s","rot":"-4.2deg"},{"l":"0.000%","t":"70.490%","w":"18.028%","h":"21.739%","bs":"554.706% 460.000%","bp":"0.000% 90.071%","cp":"polygon(93.91% 0.00%, 100.00% 0.00%, -135.01% 100.00%, -149.74% 100.00%)","d":"1.040s","rot":"2.8deg"},{"l":"0.000%","t":"70.490%","w":"19.126%","h":"21.739%","bs":"522.840% 460.000%","bp":"0.000% 90.071%","cp":"polygon(94.26% 0.00%, 100.00% 0.00%, -113.38% 100.00%, -127.26% 100.00%)","d":"1.080s","rot":"5.1deg"},{"l":"4.347%","t":"92.229%","w":"9.958%","h":"7.771%","bs":"1004.232% 1286.905%","bp":"4.828% 100.000%","cp":"polygon(75.85% 0.00%, 100.00% 0.00%, 29.21% 100.00%, 0.00% 100.00%)","d":"1.120s","rot":"7.8deg"},{"l":"0.000%","t":"70.490%","w":"20.225%","h":"21.739%","bs":"494.436% 460.000%","bp":"0.000% 90.071%","cp":"polygon(94.57% 0.00%, 100.00% 0.00%, -94.10% 100.00%, -107.22% 100.00%)","d":"1.160s","rot":"8.4deg"},{"l":"0.000%","t":"70.490%","w":"21.324%","h":"21.739%","bs":"468.960% 460.000%","bp":"0.000% 90.071%","cp":"polygon(94.85% 0.00%, 100.00% 0.00%, -76.80% 100.00%, -89.25% 100.00%)","d":"1.200s","rot":"-9.1deg"},{"l":"0.000%","t":"70.490%","w":"22.423%","h":"21.739%","bs":"445.980% 460.000%","bp":"0.000% 90.071%","cp":"polygon(95.10% 0.00%, 100.00% 0.00%, -61.20% 100.00%, -73.04% 100.00%)","d":"1.240s","rot":"2.3deg"},{"l":"0.000%","t":"70.490%","w":"23.521%","h":"21.739%","bs":"425.147% 460.000%","bp":"0.000% 90.071%","cp":"polygon(95.33% 0.00%, 100.00% 0.00%, -47.06% 100.00%, -58.34% 100.00%)","d":"1.280s","rot":"3.8deg"},{"l":"7.257%","t":"92.229%","w":"9.454%","h":"7.771%","bs":"1057.751% 1286.905%","bp":"8.014% 100.000%","cp":"polygon(74.56% 0.00%, 100.00% 0.00%, 30.77% 100.00%, 0.00% 100.00%)","d":"1.320s","rot":"0.1deg"},{"l":"0.000%","t":"70.490%","w":"24.620%","h":"21.739%","bs":"406.173% 460.000%","bp":"0.000% 90.071%","cp":"polygon(95.54% 0.00%, 100.00% 0.00%, -34.18% 100.00%, -44.96% 100.00%)","d":"1.360s","rot":"-7.1deg"},{"l":"0.000%","t":"70.490%","w":"25.719%","h":"21.739%","bs":"388.821% 460.000%","bp":"0.000% 90.071%","cp":"polygon(95.73% 0.00%, 100.00% 0.00%, -22.40% 100.00%, -32.72% 100.00%)","d":"1.400s","rot":"-0.6deg"},{"l":"0.000%","t":"70.490%","w":"26.818%","h":"21.739%","bs":"372.890% 460.000%","bp":"0.000% 90.071%","cp":"polygon(95.90% 0.00%, 100.00% 0.00%, -11.58% 100.00%, -21.48% 100.00%)","d":"1.440s","rot":"-9.0deg"},{"l":"0.000%","t":"70.490%","w":"27.916%","h":"21.739%","bs":"358.214% 460.000%","bp":"0.000% 90.071%","cp":"polygon(96.06% 0.00%, 100.00% 0.00%, -1.62% 100.00%, -11.13% 100.00%)","d":"1.480s","rot":"9.6deg"},{"l":"0.000%","t":"70.490%","w":"29.015%","h":"21.739%","bs":"344.649% 460.000%","bp":"0.000% 90.071%","cp":"polygon(96.21% 0.00%, 100.00% 0.00%, 7.59% 100.00%, -1.56% 100.00%)","d":"1.520s","rot":"8.0deg"},{"l":"2.203%","t":"70.490%","w":"27.911%","h":"21.739%","bs":"358.280% 460.000%","bp":"3.055% 90.071%","cp":"polygon(96.06% 0.00%, 100.00% 0.00%, 9.51% 100.00%, 0.00% 100.00%)","d":"1.560s","rot":"1.0deg"},{"l":"10.166%","t":"92.229%","w":"8.950%","h":"7.771%","bs":"1117.296% 1286.905%","bp":"11.165% 100.000%","cp":"polygon(73.13% 0.00%, 100.00% 0.00%, 32.50% 100.00%, 0.00% 100.00%)","d":"1.600s","rot":"-4.4deg"},{"l":"4.857%","t":"70.490%","w":"26.356%","h":"21.739%","bs":"379.424% 460.000%","bp":"6.595% 90.071%","cp":"polygon(95.83% 0.00%, 100.00% 0.00%, 10.07% 100.00%, 0.00% 100.00%)","d":"1.640s","rot":"9.0deg"},{"l":"13.075%","t":"92.229%","w":"8.446%","h":"7.771%","bs":"1183.945% 1286.905%","bp":"14.281% 100.000%","cp":"polygon(71.52% 0.00%, 100.00% 0.00%, 34.44% 100.00%, 0.00% 100.00%)","d":"1.680s","rot":"1.6deg"},{"l":"7.511%","t":"70.490%","w":"24.800%","h":"21.739%","bs":"403.222% 460.000%","bp":"9.988% 90.071%","cp":"polygon(95.57% 0.00%, 100.00% 0.00%, 10.70% 100.00%, 0.00% 100.00%)","d":"1.720s","rot":"8.4deg"},{"l":"15.984%","t":"92.229%","w":"7.942%","h":"7.771%","bs":"1259.050% 1286.905%","bp":"17.363% 100.000%","cp":"polygon(69.72% 0.00%, 100.00% 0.00%, 36.63% 100.00%, 0.00% 100.00%)","d":"1.760s","rot":"7.7deg"},{"l":"10.165%","t":"70.490%","w":"23.245%","h":"21.739%","bs":"430.204% 460.000%","bp":"13.244% 90.071%","cp":"polygon(95.27% 0.00%, 100.00% 0.00%, 11.42% 100.00%, 0.00% 100.00%)","d":"1.800s","rot":"0.2deg"},{"l":"18.893%","t":"92.229%","w":"7.439%","h":"7.771%","bs":"1344.330% 1286.905%","bp":"20.411% 100.000%","cp":"polygon(67.67% 0.00%, 100.00% 0.00%, 39.11% 100.00%, 0.00% 100.00%)","d":"1.840s","rot":"-1.9deg"},{"l":"12.819%","t":"70.490%","w":"21.689%","h":"21.739%","bs":"461.056% 460.000%","bp":"16.370% 90.071%","cp":"polygon(94.93% 0.00%, 100.00% 0.00%, 12.24% 100.00%, 0.00% 100.00%)","d":"1.880s","rot":"2.2deg"},{"l":"21.802%","t":"92.229%","w":"6.935%","h":"7.771%","bs":"1442.001% 1286.905%","bp":"23.427% 100.000%","cp":"polygon(65.32% 0.00%, 100.00% 0.00%, 41.95% 100.00%, 0.00% 100.00%)","d":"1.920s","rot":"-1.5deg"},{"l":"15.474%","t":"70.490%","w":"20.134%","h":"21.739%","bs":"496.675% 460.000%","bp":"19.374% 90.071%","cp":"polygon(94.54% 0.00%, 100.00% 0.00%, 13.18% 100.00%, 0.00% 100.00%)","d":"1.960s","rot":"-7.5deg"},{"l":"18.128%","t":"70.490%","w":"18.578%","h":"21.739%","bs":"538.259% 460.000%","bp":"22.264% 90.071%","cp":"polygon(94.09% 0.00%, 100.00% 0.00%, 14.29% 100.00%, 0.00% 100.00%)","d":"2.000s","rot":"-4.3deg"},{"l":"20.782%","t":"70.490%","w":"17.023%","h":"21.739%","bs":"587.441% 460.000%","bp":"25.046% 90.071%","cp":"polygon(93.55% 0.00%, 100.00% 0.00%, 15.59% 100.00%, 0.00% 100.00%)","d":"2.040s","rot":"6.9deg"},{"l":"24.711%","t":"92.229%","w":"6.431%","h":"7.771%","bs":"1554.976% 1286.905%","bp":"26.409% 100.000%","cp":"polygon(62.60% 0.00%, 100.00% 0.00%, 45.24% 100.00%, 0.00% 100.00%)","d":"2.080s","rot":"-10.0deg"},{"l":"23.436%","t":"70.490%","w":"15.468%","h":"21.739%","bs":"646.516% 460.000%","bp":"27.725% 90.071%","cp":"polygon(92.90% 0.00%, 100.00% 0.00%, 17.16% 100.00%, 0.00% 100.00%)","d":"2.120s","rot":"-10.0deg"},{"l":"27.620%","t":"92.229%","w":"5.927%","h":"7.771%","bs":"1687.158% 1286.905%","bp":"29.360% 100.000%","cp":"polygon(59.42% 0.00%, 100.00% 0.00%, 49.08% 100.00%, 0.00% 100.00%)","d":"2.160s","rot":"2.8deg"},{"l":"26.090%","t":"70.490%","w":"13.912%","h":"21.739%","bs":"718.801% 460.000%","bp":"30.307% 90.071%","cp":"polygon(92.10% 0.00%, 100.00% 0.00%, 19.08% 100.00%, 0.00% 100.00%)","d":"2.200s","rot":"-4.8deg"},{"l":"30.529%","t":"92.229%","w":"5.423%","h":"7.771%","bs":"1843.901% 1286.905%","bp":"32.280% 100.000%","cp":"polygon(55.65% 0.00%, 100.00% 0.00%, 53.64% 100.00%, 0.00% 100.00%)","d":"2.240s","rot":"0.8deg"},{"l":"28.745%","t":"70.490%","w":"12.357%","h":"21.739%","bs":"809.284% 460.000%","bp":"32.797% 90.071%","cp":"polygon(91.11% 0.00%, 100.00% 0.00%, 21.48% 100.00%, 0.00% 100.00%)","d":"2.280s","rot":"-0.6deg"},{"l":"33.438%","t":"92.229%","w":"4.919%","h":"7.771%","bs":"2032.751% 1286.905%","bp":"35.168% 100.000%","cp":"polygon(51.11% 0.00%, 100.00% 0.00%, 59.13% 100.00%, 0.00% 100.00%)","d":"2.320s","rot":"-3.5deg"},{"l":"31.399%","t":"70.490%","w":"10.801%","h":"21.739%","bs":"925.827% 460.000%","bp":"35.201% 90.071%","cp":"polygon(89.83% 0.00%, 100.00% 0.00%, 24.57% 100.00%, 0.00% 100.00%)","d":"2.360s","rot":"10.9deg"},{"l":"34.053%","t":"70.490%","w":"9.246%","h":"21.739%","bs":"1081.584% 460.000%","bp":"37.522% 90.071%","cp":"polygon(88.12% 0.00%, 100.00% 0.00%, 28.71% 100.00%, 0.00% 100.00%)","d":"2.400s","rot":"-6.7deg"},{"l":"36.707%","t":"70.490%","w":"7.690%","h":"21.739%","bs":"1300.349% 460.000%","bp":"39.765% 90.071%","cp":"polygon(85.71% 0.00%, 100.00% 0.00%, 34.51% 100.00%, 0.00% 100.00%)","d":"2.440s","rot":"-1.9deg"},{"l":"36.347%","t":"92.229%","w":"4.416%","h":"7.771%","bs":"2264.698% 1286.905%","bp":"38.027% 100.000%","cp":"polygon(45.53% 0.00%, 100.00% 0.00%, 65.88% 100.00%, 0.00% 100.00%)","d":"2.480s","rot":"-6.5deg"},{"l":"39.361%","t":"70.490%","w":"6.135%","h":"21.739%","bs":"1630.049% 460.000%","bp":"41.934% 90.071%","cp":"polygon(82.09% 0.00%, 100.00% 0.00%, 43.26% 100.00%, 0.00% 100.00%)","d":"2.520s","rot":"2.9deg"},{"l":"39.257%","t":"92.229%","w":"3.912%","h":"7.771%","bs":"2556.395% 1286.905%","bp":"40.855% 100.000%","cp":"polygon(38.51% 0.00%, 100.00% 0.00%, 74.37% 100.00%, 0.00% 100.00%)","d":"2.560s","rot":"-4.9deg"},{"l":"42.016%","t":"70.490%","w":"4.579%","h":"21.739%","bs":"2183.726% 460.000%","bp":"44.032% 90.071%","cp":"polygon(76.01% 0.00%, 100.00% 0.00%, 57.96% 100.00%, 0.00% 100.00%)","d":"2.600s","rot":"-3.2deg"},{"l":"42.166%","t":"92.229%","w":"3.408%","h":"7.771%","bs":"2934.344% 1286.905%","bp":"43.653% 100.000%","cp":"polygon(29.42% 0.00%, 100.00% 0.00%, 85.36% 100.00%, 0.00% 100.00%)","d":"2.640s","rot":"5.4deg"},{"l":"44.670%","t":"70.490%","w":"3.024%","h":"21.739%","bs":"3307.016% 460.000%","bp":"46.063% 90.071%","cp":"polygon(63.66% 0.00%, 100.00% 0.00%, 87.77% 100.00%, 0.00% 100.00%)","d":"2.680s","rot":"-3.9deg"},{"l":"45.075%","t":"92.229%","w":"2.909%","h":"7.771%","bs":"3437.504% 1286.905%","bp":"46.425% 100.000%","cp":"polygon(17.15% 0.00%, 99.83% 0.00%, 100.00% 100.00%, 0.00% 100.00%)","d":"2.720s","rot":"1.3deg"},{"l":"47.324%","t":"70.490%","w":"2.654%","h":"21.739%","bs":"3767.609% 460.000%","bp":"48.614% 90.071%","cp":"polygon(13.93% 0.00%, 55.32% 0.00%, 100.00% 100.00%, 0.00% 100.00%)","d":"2.760s","rot":"8.9deg"},{"l":"47.979%","t":"92.229%","w":"2.914%","h":"7.771%","bs":"3431.591% 1286.905%","bp":"49.419% 100.000%","cp":"polygon(0.00% 0.00%, 82.54% 0.00%, 100.00% 100.00%, 0.17% 100.00%)","d":"2.800s","rot":"-8.8deg"},{"l":"48.792%","t":"70.490%","w":"3.840%","h":"21.739%","bs":"2604.175% 460.000%","bp":"50.741% 90.071%","cp":"polygon(0.00% 0.00%, 28.61% 0.00%, 100.00% 100.00%, 30.88% 100.00%)","d":"2.840s","rot":"-9.6deg"},{"l":"49.891%","t":"70.490%","w":"5.395%","h":"21.739%","bs":"1853.416% 460.000%","bp":"52.737% 90.071%","cp":"polygon(0.00% 0.00%, 20.36% 0.00%, 100.00% 100.00%, 50.81% 100.00%)","d":"2.880s","rot":"-6.0deg"},{"l":"50.384%","t":"92.229%","w":"3.418%","h":"7.771%","bs":"2925.737% 1286.905%","bp":"52.167% 100.000%","cp":"polygon(0.00% 0.00%, 70.37% 0.00%, 100.00% 100.00%, 14.89% 100.00%)","d":"2.920s","rot":"5.8deg"},{"l":"50.990%","t":"70.490%","w":"6.951%","h":"21.739%","bs":"1438.663% 460.000%","bp":"54.799% 90.071%","cp":"polygon(0.00% 0.00%, 15.81% 0.00%, 100.00% 100.00%, 61.81% 100.00%)","d":"2.960s","rot":"2.5deg"},{"l":"52.789%","t":"92.229%","w":"3.922%","h":"7.771%","bs":"2549.860% 1286.905%","bp":"54.944% 100.000%","cp":"polygon(0.00% 0.00%, 61.33% 0.00%, 100.00% 100.00%, 25.82% 100.00%)","d":"3.000s","rot":"-5.8deg"},{"l":"52.089%","t":"70.490%","w":"8.506%","h":"21.739%","bs":"1175.592% 460.000%","bp":"56.932% 90.071%","cp":"polygon(0.00% 0.00%, 12.92% 0.00%, 100.00% 100.00%, 68.80% 100.00%)","d":"3.040s","rot":"-3.7deg"},{"l":"53.187%","t":"70.490%","w":"10.062%","h":"21.739%","bs":"993.857% 460.000%","bp":"59.138% 90.071%","cp":"polygon(0.00% 0.00%, 10.92% 0.00%, 100.00% 100.00%, 73.62% 100.00%)","d":"3.080s","rot":"-7.1deg"},{"l":"55.195%","t":"92.229%","w":"4.426%","h":"7.771%","bs":"2259.567% 1286.905%","bp":"57.750% 100.000%","cp":"polygon(0.00% 0.00%, 54.35% 0.00%, 100.00% 100.00%, 34.27% 100.00%)","d":"3.120s","rot":"-0.9deg"},{"l":"54.286%","t":"70.490%","w":"11.617%","h":"21.739%","bs":"860.788% 460.000%","bp":"61.422% 90.071%","cp":"polygon(0.00% 0.00%, 9.46% 0.00%, 100.00% 100.00%, 77.15% 100.00%)","d":"3.160s","rot":"-10.1deg"},{"l":"57.600%","t":"92.229%","w":"4.929%","h":"7.771%","bs":"2028.616% 1286.905%","bp":"60.586% 100.000%","cp":"polygon(0.00% 0.00%, 48.79% 0.00%, 100.00% 100.00%, 40.99% 100.00%)","d":"3.200s","rot":"4.3deg"},{"l":"55.385%","t":"70.490%","w":"13.173%","h":"21.739%","bs":"759.145% 460.000%","bp":"63.788% 90.071%","cp":"polygon(0.00% 0.00%, 8.34% 0.00%, 100.00% 100.00%, 79.85% 100.00%)","d":"3.240s","rot":"8.7deg"},{"l":"56.484%","t":"70.490%","w":"14.728%","h":"21.739%","bs":"678.971% 460.000%","bp":"66.240% 90.071%","cp":"polygon(0.00% 0.00%, 7.46% 0.00%, 100.00% 100.00%, 81.98% 100.00%)","d":"3.280s","rot":"10.0deg"},{"l":"60.005%","t":"92.229%","w":"5.433%","h":"7.771%","bs":"1840.499% 1286.905%","bp":"63.453% 100.000%","cp":"polygon(0.00% 0.00%, 44.27% 0.00%, 100.00% 100.00%, 46.46% 100.00%)","d":"3.320s","rot":"5.2deg"},{"l":"57.582%","t":"70.490%","w":"16.284%","h":"21.739%","bs":"614.114% 460.000%","bp":"68.783% 90.071%","cp":"polygon(0.00% 0.00%, 6.75% 0.00%, 100.00% 100.00%, 83.70% 100.00%)","d":"3.360s","rot":"10.1deg"},{"l":"62.410%","t":"92.229%","w":"5.937%","h":"7.771%","bs":"1684.309% 1286.905%","bp":"66.350% 100.000%","cp":"polygon(0.00% 0.00%, 40.51% 0.00%, 100.00% 100.00%, 51.00% 100.00%)","d":"3.400s","rot":"-10.6deg"},{"l":"58.681%","t":"70.490%","w":"17.839%","h":"21.739%","bs":"560.567% 460.000%","bp":"71.422% 90.071%","cp":"polygon(0.00% 0.00%, 6.16% 0.00%, 100.00% 100.00%, 85.12% 100.00%)","d":"3.440s","rot":"-4.6deg"},{"l":"64.816%","t":"92.229%","w":"6.441%","h":"7.771%","bs":"1552.555% 1286.905%","bp":"69.278% 100.000%","cp":"polygon(0.00% 0.00%, 37.34% 0.00%, 100.00% 100.00%, 54.83% 100.00%)","d":"3.480s","rot":"10.3deg"},{"l":"59.780%","t":"70.490%","w":"19.395%","h":"21.739%","bs":"515.609% 460.000%","bp":"74.164% 90.071%","cp":"polygon(0.00% 0.00%, 5.67% 0.00%, 100.00% 100.00%, 86.31% 100.00%)","d":"3.520s","rot":"6.1deg"},{"l":"60.879%","t":"70.490%","w":"20.950%","h":"21.739%","bs":"477.327% 460.000%","bp":"77.013% 90.071%","cp":"polygon(0.00% 0.00%, 5.24% 0.00%, 100.00% 100.00%, 87.33% 100.00%)","d":"3.560s","rot":"-2.0deg"},{"l":"67.221%","t":"92.229%","w":"6.945%","h":"7.771%","bs":"1439.919% 1286.905%","bp":"72.238% 100.000%","cp":"polygon(0.00% 0.00%, 34.63% 0.00%, 100.00% 100.00%, 58.11% 100.00%)","d":"3.600s","rot":"9.8deg"},{"l":"61.977%","t":"70.490%","w":"22.505%","h":"21.739%","bs":"444.337% 460.000%","bp":"79.977% 90.071%","cp":"polygon(0.00% 0.00%, 4.88% 0.00%, 100.00% 100.00%, 88.21% 100.00%)","d":"3.640s","rot":"2.7deg"},{"l":"69.626%","t":"92.229%","w":"7.449%","h":"7.771%","bs":"1342.520% 1286.905%","bp":"75.230% 100.000%","cp":"polygon(0.00% 0.00%, 32.29% 0.00%, 100.00% 100.00%, 60.94% 100.00%)","d":"3.680s","rot":"7.0deg"},{"l":"63.076%","t":"70.490%","w":"24.061%","h":"21.739%","bs":"415.612% 460.000%","bp":"83.062% 90.071%","cp":"polygon(0.00% 0.00%, 4.57% 0.00%, 100.00% 100.00%, 88.97% 100.00%)","d":"3.720s","rot":"-4.5deg"},{"l":"64.175%","t":"70.490%","w":"25.616%","h":"21.739%","bs":"390.375% 460.000%","bp":"86.276% 90.071%","cp":"polygon(0.00% 0.00%, 4.29% 0.00%, 100.00% 100.00%, 89.64% 100.00%)","d":"3.760s","rot":"-6.8deg"},{"l":"72.031%","t":"92.229%","w":"7.953%","h":"7.771%","bs":"1257.463% 1286.905%","bp":"78.254% 100.000%","cp":"polygon(0.00% 0.00%, 30.25% 0.00%, 100.00% 100.00%, 63.42% 100.00%)","d":"3.800s","rot":"-1.2deg"},{"l":"65.274%","t":"70.490%","w":"27.172%","h":"21.739%","bs":"368.028% 460.000%","bp":"89.627% 90.071%","cp":"polygon(0.00% 0.00%, 4.04% 0.00%, 100.00% 100.00%, 90.23% 100.00%)","d":"3.840s","rot":"-8.0deg"},{"l":"74.436%","t":"92.229%","w":"8.456%","h":"7.771%","bs":"1182.542% 1286.905%","bp":"81.313% 100.000%","cp":"polygon(0.00% 0.00%, 28.44% 0.00%, 100.00% 100.00%, 65.60% 100.00%)","d":"3.880s","rot":"-2.6deg"},{"l":"66.372%","t":"70.490%","w":"28.727%","h":"21.739%","bs":"348.101% 460.000%","bp":"93.125% 90.071%","cp":"polygon(0.00% 0.00%, 3.82% 0.00%, 100.00% 100.00%, 90.76% 100.00%)","d":"3.920s","rot":"10.2deg"},{"l":"76.842%","t":"92.229%","w":"8.960%","h":"7.771%","bs":"1116.046% 1286.905%","bp":"84.405% 100.000%","cp":"polygon(0.00% 0.00%, 26.84% 0.00%, 100.00% 100.00%, 67.53% 100.00%)","d":"3.960s","rot":"-3.7deg"},{"l":"67.471%","t":"70.490%","w":"30.283%","h":"21.739%","bs":"330.221% 460.000%","bp":"96.778% 90.071%","cp":"polygon(0.00% 0.00%, 3.63% 0.00%, 100.00% 100.00%, 91.24% 100.00%)","d":"4.000s","rot":"-10.8deg"},{"l":"68.570%","t":"70.490%","w":"31.430%","h":"21.739%","bs":"318.167% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 3.50% 0.00%, 101.30% 100.00%, 92.85% 100.00%)","d":"4.040s","rot":"-10.0deg"},{"l":"79.247%","t":"92.229%","w":"9.464%","h":"7.771%","bs":"1056.631% 1286.905%","bp":"87.531% 100.000%","cp":"polygon(0.00% 0.00%, 25.41% 0.00%, 100.00% 100.00%, 69.26% 100.00%)","d":"4.080s","rot":"-7.3deg"},{"l":"69.669%","t":"70.490%","w":"30.331%","h":"21.739%","bs":"329.692% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 3.62% 0.00%, 110.10% 100.00%, 101.35% 100.00%)","d":"4.120s","rot":"6.2deg"},{"l":"70.767%","t":"70.490%","w":"29.233%","h":"21.739%","bs":"342.084% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 3.76% 0.00%, 119.56% 100.00%, 110.48% 100.00%)","d":"4.160s","rot":"-3.0deg"},{"l":"71.866%","t":"70.490%","w":"28.134%","h":"21.739%","bs":"355.444% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 3.91% 0.00%, 129.75% 100.00%, 120.32% 100.00%)","d":"4.200s","rot":"-4.6deg"},{"l":"72.965%","t":"70.490%","w":"27.035%","h":"21.739%","bs":"369.890% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 4.06% 0.00%, 140.78% 100.00%, 130.96% 100.00%)","d":"4.240s","rot":"-8.9deg"},{"l":"81.652%","t":"92.229%","w":"9.968%","h":"7.771%","bs":"1003.222% 1286.905%","bp":"90.692% 100.000%","cp":"polygon(0.00% 0.00%, 24.13% 0.00%, 100.00% 100.00%, 70.82% 100.00%)","d":"4.280s","rot":"10.6deg"},{"l":"74.064%","t":"70.490%","w":"25.936%","h":"21.739%","bs":"385.560% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 4.24% 0.00%, 152.74% 100.00%, 142.51% 100.00%)","d":"4.320s","rot":"-1.7deg"},{"l":"75.162%","t":"70.490%","w":"24.838%","h":"21.739%","bs":"402.616% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 4.42% 0.00%, 165.76% 100.00%, 155.07% 100.00%)","d":"4.360s","rot":"-6.4deg"},{"l":"76.261%","t":"70.490%","w":"23.739%","h":"21.739%","bs":"421.251% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 4.63% 0.00%, 179.99% 100.00%, 168.80% 100.00%)","d":"4.400s","rot":"-9.7deg"},{"l":"77.360%","t":"70.490%","w":"22.640%","h":"21.739%","bs":"441.694% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 4.85% 0.00%, 195.59% 100.00%, 183.87% 100.00%)","d":"4.440s","rot":"-9.8deg"},{"l":"78.459%","t":"70.490%","w":"21.541%","h":"21.739%","bs":"464.224% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 5.10% 0.00%, 212.79% 100.00%, 200.47% 100.00%)","d":"4.480s","rot":"-7.3deg"},{"l":"79.557%","t":"70.490%","w":"20.443%","h":"21.739%","bs":"489.175% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 5.37% 0.00%, 231.83% 100.00%, 218.85% 100.00%)","d":"4.520s","rot":"3.9deg"},{"l":"80.656%","t":"70.490%","w":"19.344%","h":"21.739%","bs":"516.960% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 5.68% 0.00%, 253.04% 100.00%, 239.32% 100.00%)","d":"4.560s","rot":"-7.7deg"},{"l":"81.755%","t":"70.490%","w":"18.245%","h":"21.739%","bs":"548.093% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 6.02% 0.00%, 276.81% 100.00%, 262.26% 100.00%)","d":"4.600s","rot":"-10.1deg"},{"l":"84.057%","t":"92.229%","w":"10.472%","h":"7.771%","bs":"954.952% 1286.905%","bp":"93.889% 100.000%","cp":"polygon(0.00% 0.00%, 22.97% 0.00%, 100.00% 100.00%, 72.22% 100.00%)","d":"4.640s","rot":"-0.2deg"},{"l":"82.854%","t":"70.490%","w":"17.146%","h":"21.739%","bs":"583.215% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 6.41% 0.00%, 303.62% 100.00%, 288.14% 100.00%)","d":"4.680s","rot":"-5.5deg"},{"l":"83.952%","t":"70.490%","w":"16.048%","h":"21.739%","bs":"623.146% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 6.85% 0.00%, 334.10% 100.00%, 317.56% 100.00%)","d":"4.720s","rot":"10.9deg"},{"l":"85.051%","t":"70.490%","w":"14.949%","h":"21.739%","bs":"668.948% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 7.35% 0.00%, 369.06% 100.00%, 351.30% 100.00%)","d":"4.760s","rot":"-8.3deg"},{"l":"86.150%","t":"70.490%","w":"13.850%","h":"21.739%","bs":"722.016% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 7.93% 0.00%, 409.57% 100.00%, 390.40% 100.00%)","d":"4.800s","rot":"0.6deg"},{"l":"86.463%","t":"92.229%","w":"10.976%","h":"7.771%","bs":"911.114% 1286.905%","bp":"97.122% 100.000%","cp":"polygon(0.00% 0.00%, 21.91% 0.00%, 100.00% 100.00%, 73.49% 100.00%)","d":"4.840s","rot":"6.0deg"},{"l":"87.249%","t":"70.490%","w":"12.751%","h":"21.739%","bs":"784.230% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 8.62% 0.00%, 457.06% 100.00%, 436.24% 100.00%)","d":"4.880s","rot":"-2.0deg"},{"l":"88.347%","t":"70.490%","w":"11.653%","h":"21.739%","bs":"858.177% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 9.43% 0.00%, 513.50% 100.00%, 490.72% 100.00%)","d":"4.920s","rot":"10.7deg"},{"l":"89.446%","t":"70.490%","w":"10.554%","h":"21.739%","bs":"947.520% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 10.41% 0.00%, 581.70% 100.00%, 556.55% 100.00%)","d":"4.960s","rot":"-0.5deg"},{"l":"90.545%","t":"70.490%","w":"9.455%","h":"21.739%","bs":"1057.628% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 11.62% 0.00%, 665.75% 100.00%, 637.68% 100.00%)","d":"5.000s","rot":"-5.7deg"},{"l":"88.868%","t":"92.229%","w":"11.132%","h":"7.771%","bs":"898.309% 1286.905%","bp":"100.000% 100.000%","cp":"polygon(0.00% 0.00%, 21.61% 0.00%, 103.12% 100.00%, 76.99% 100.00%)","d":"5.040s","rot":"-2.0deg"},{"l":"91.273%","t":"92.229%","w":"8.727%","h":"7.771%","bs":"1145.898% 1286.905%","bp":"100.000% 100.000%","cp":"polygon(0.00% 0.00%, 27.56% 0.00%, 137.32% 100.00%, 103.98% 100.00%)","d":"5.080s","rot":"-10.2deg"},{"l":"91.644%","t":"70.490%","w":"8.356%","h":"21.739%","bs":"1196.692% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 13.15% 0.00%, 771.90% 100.00%, 740.14% 100.00%)","d":"5.120s","rot":"-1.7deg"},{"l":"92.742%","t":"70.490%","w":"7.258%","h":"21.739%","bs":"1377.862% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 15.14% 0.00%, 910.19% 100.00%, 873.62% 100.00%)","d":"5.160s","rot":"-5.5deg"},{"l":"93.841%","t":"70.490%","w":"6.159%","h":"21.739%","bs":"1623.673% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 17.84% 0.00%, 1097.83% 100.00%, 1054.73% 100.00%)","d":"5.200s","rot":"8.6deg"},{"l":"94.940%","t":"70.490%","w":"5.060%","h":"21.739%","bs":"1976.235% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 21.71% 0.00%, 1366.94% 100.00%, 1314.49% 100.00%)","d":"5.240s","rot":"7.3deg"},{"l":"93.678%","t":"92.229%","w":"6.322%","h":"7.771%","bs":"1581.894% 1286.905%","bp":"100.000% 100.000%","cp":"polygon(0.00% 0.00%, 38.05% 0.00%, 197.53% 100.00%, 151.51% 100.00%)","d":"5.280s","rot":"-0.0deg"},{"l":"96.039%","t":"70.490%","w":"3.961%","h":"21.739%","bs":"2524.373% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 27.74% 0.00%, 1785.35% 100.00%, 1718.35% 100.00%)","d":"5.320s","rot":"-10.3deg"},{"l":"97.137%","t":"70.490%","w":"2.863%","h":"21.739%","bs":"3493.289% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 38.38% 0.00%, 2524.95% 100.00%, 2432.23% 100.00%)","d":"5.360s","rot":"-5.4deg"},{"l":"98.236%","t":"70.490%","w":"1.764%","h":"21.739%","bs":"5669.305% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 62.29% 0.00%, 4185.96% 100.00%, 4035.48% 100.00%)","d":"5.400s","rot":"-5.7deg"},{"l":"99.335%","t":"70.490%","w":"0.665%","h":"21.739%","bs":"15034.492% 460.000%","bp":"100.000% 90.071%","cp":"polygon(0.00% 0.00%, 165.19% 0.00%, 11334.65% 100.00%, 10935.60% 100.00%)","d":"5.440s","rot":"-6.4deg"},{"l":"96.084%","t":"92.229%","w":"3.916%","h":"7.771%","bs":"2553.436% 1286.905%","bp":"100.000% 100.000%","cp":"polygon(0.00% 0.00%, 61.42% 0.00%, 331.72% 100.00%, 257.43% 100.00%)","d":"5.480s","rot":"-5.9deg"},{"l":"98.489%","t":"92.229%","w":"1.511%","h":"7.771%","bs":"6617.929% 1286.905%","bp":"100.000% 100.000%","cp":"polygon(0.00% 0.00%, 159.18% 0.00%, 893.08% 100.00%, 700.55% 100.00%)","d":"5.520s","rot":"8.1deg"}];
+    this.planksDone = "6.14s";
+    this.photos = [
+      { src: "./assets/b028edb1a947e9a7b186eca8897119b8.jpg", cap: "Curved staircase & medallion inlay", alt: "Curved hardwood staircase above a floor with a ring medallion inlay" },
+      { src: "./assets/0d6fb2da04efb68674bd876e41121e60.jpg", cap: "Oval inlay border \u00b7 dining room", alt: "Dining room hardwood floor framed by an oval inlay border" },
+      { src: "./assets/26cbe3aecd43fc4cf90e229e046f07c2.jpg", cap: "Compass rose medallion", alt: "Compass rose medallion inlaid in a hardwood floor" },
+      { src: "./assets/1b095b944fcc3988f57c0acf2c591cd3.jpg", cap: "Exotic hardwood with custom border", alt: "Dining room with dark exotic hardwood and a curved custom border" },
+      { src: "./assets/7bfba7dfe22251d8ecaa90e61afa5b8c.jpg", cap: "Ring medallion \u00b7 great room", alt: "Great room hardwood floor with a ring medallion inlay" },
+      { src: "./assets/93f02a9814c0ca7c419b9c2b40259460.jpg", cap: "Reclaimed wood kitchen floor", alt: "Kitchen island over a reclaimed wood floor" },
+      { src: "./assets/38d01bc97cc3ffdc87074032f2abe99b.jpg", cap: "Exotic hardwood living area", alt: "Open living area with a warm exotic hardwood floor" },
+      { src: "./assets/6cc72534bd9c1f03d73a29e182bb8654.jpg", cap: "Hand-crafted inlay border", alt: "Hallway floor with a hand-crafted scroll inlay border" },
+      { src: "./assets/ba03cf6953dd595ed0e192ed8d9b62b0.jpg", cap: "End-grain wood block floor", alt: "End-grain wood block floor" },
+      { src: "./assets/2b7ffcd8f514a9cde365d350f381ad6e.jpg", cap: "Ring medallion detail", alt: "Close-up of a ring medallion inlay in a hardwood floor" },
+      { src: "./assets/7a9fb700840e79314db7414b5161e0d2.jpg", cap: "Two-story great room", alt: "Two-story great room with hardwood floors" },
+      { src: "./assets/e86f2dea46afad67601ed45c6c3ec16a.jpg", cap: "Staircase treads & railing", alt: "Hardwood staircase treads with a dark railing" },
+      { src: "./assets/b56275e49a65561045ad20d14ffee5a5.jpg", cap: "Curved balcony with wood cap", alt: "Curved balcony with a stained wood cap and iron balusters" },
+      { src: "./assets/07843a33652cc172c001bc6ef5940912.jpg", cap: "Striped exotic hardwood hallway", alt: "Hallway with a striped exotic hardwood floor" },
+      { src: "./assets/d60ab6871e560ab7da7867c3f1753529.jpg", cap: "Installation in progress", alt: "Hardwood floor installation in progress" },
+      { src: "./assets/5d4eb4f0bd53b87005536fb8b9e6abbd.jpg", cap: "Reclaimed wood kitchen", alt: "Kitchen with a reclaimed wood floor" },
+      { src: "./assets/e8bfc1a2d7dd9436f728228151870dfd.jpg", cap: "Reclaimed wood kitchen", alt: "Open kitchen with a reclaimed wood floor" },
+      { src: "./assets/d16dd2f0bda10ea8f1e0ca6eddf7b2d6.jpg", cap: "Kitchen bar & reclaimed floor", alt: "Kitchen bar with stools over a reclaimed wood floor" },
+      { src: "./assets/609a2c5b705c4483df131cdef95bd8a9.jpg", cap: "Kitchen project", alt: "Kitchen cabinetry above a hardwood floor" }
+    ];
+    this.heroWrap = null; this.hero = null; this.header = null;
+    this.ticking = false; this.dist = 900; this.stick = 0;
+    var self = this;
+    this.onScroll = function () {
+      if (self.ticking) { return; }
+      self.ticking = true;
+      window.requestAnimationFrame(function () { self.ticking = false; self.update(); });
+    };
+    this.onResize = function () { self.measure(); self.update(); };
+  }
+  componentDidMount() {
+    var me = this;
+    this.goEvents = ['mousemove', 'wheel', 'scroll', 'touchstart', 'keydown', 'pointerdown'];
+    this.onGo = function () {
+      if (me.state.go) { return; }
+      me.setState({ go: true });
+      me.goEvents.forEach(function (ev) { window.removeEventListener(ev, me.onGo, true); });
+    };
+    this.goEvents.forEach(function (ev) { window.addEventListener(ev, me.onGo, { passive: true, capture: true }); });
+    var pending = 2;
+    var ready = function () { pending -= 1; if (pending <= 0 && !me.state.imgReady) { me.setState({ imgReady: true }); } };
+    ['./assets/8a0b155aa93ec6cd70b093f3d2b2a701.jpg', './assets/8c54b50d264631958ec47ac71195e559.jpg'].forEach(function (u) {
+      var im = new Image();
+      im.onload = ready; im.onerror = ready; im.src = u;
+      if (im.decode) { im.decode().then(function () {}, function () {}); }
+    });
+    window.setTimeout(function () { if (!me.state.imgReady) { me.setState({ imgReady: true }); } }, 6000);
+    window.addEventListener('scroll', this.onScroll, { passive: true, capture: true });
+    window.addEventListener('resize', this.onResize);
+    var self = this;
+    window.setTimeout(function () { self.measure(); self.update(); }, 0);
+    window.setTimeout(function () { self.measure(); self.update(); }, 600);
+  }
+  componentWillUnmount() {
+    var me = this;
+    if (this.goEvents) { this.goEvents.forEach(function (ev) { window.removeEventListener(ev, me.onGo, true); }); }
+    window.removeEventListener('scroll', this.onScroll, { passive: true, capture: true });
+    window.removeEventListener('resize', this.onResize);
+  }
+  docTop(el) {
+    var t = 0;
+    while (el) { t += el.offsetTop || 0; el = el.offsetParent; }
+    return t;
+  }
+  measure() {
+    if (!this.hero || !this.heroWrap) { return; }
+    var vh = window.innerHeight || 800;
+    var heroH = this.hero.offsetHeight;
+    var headH = this.header ? this.header.offsetHeight : 0;
+    this.headH = headH;
+    this.stick = Math.min(0, vh - heroH);
+    this.dist = (this.props.heroAnimation || 'Falling planks') === 'Falling planks' ? 0 : Math.round(Math.min(1100, Math.max(600, vh * 1.1)));
+    var wrapH = (heroH + this.dist) + 'px';
+    var top = this.stick + 'px';
+    var pull = (-headH) + 'px';
+    var cw = this.hero.offsetWidth, ch = heroH, iw = 1418, ih = 1081;
+    var sc = Math.max(cw / iw, ch / ih), rw = iw * sc, rh = ih * sc;
+    var stL = ((cw - rw) * 0.5).toFixed(1) + 'px', stT = ((ch - rh) * 0.7).toFixed(1) + 'px', stW = rw.toFixed(1) + 'px', stH = rh.toFixed(1) + 'px';
+    if (stL !== this.state.stL || stT !== this.state.stT || stW !== this.state.stW || stH !== this.state.stH) {
+      this.setState({ stL: stL, stT: stT, stW: stW, stH: stH });
+    }
+    if (wrapH !== this.state.heroWrapH || top !== this.state.heroTop || pull !== this.state.heroPull) {
+      this.setState({ heroWrapH: wrapH, heroTop: top, heroPull: pull });
+    }
+  }
+  update() {
+    if (!this.hero || !this.heroWrap) { return; }
+    var rect = this.heroWrap.getBoundingClientRect();
+    var off = this.docTop(this.heroWrap);
+    var scrolled = off - rect.top;
+    var span = Math.max(1, off - this.stick + this.dist);
+    var p = Math.min(1, Math.max(0, scrolled / span));
+    var e = p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+    var clamp = function (v) { return Math.min(1, Math.max(0, v)); };
+    var st = this.hero.style;
+    st.setProperty('--reveal', (-15 + e * 130).toFixed(2) + '%');
+    st.setProperty('--zoom', (1 + p * 0.05).toFixed(4));
+    st.setProperty('--p', p.toFixed(4));
+    var solid = rect.bottom <= (this.headH || 0) + 2;
+    if (solid !== this.state.solid) { this.setState({ solid: solid }); }
+    st.setProperty('--seam', clamp(Math.min(p / 0.04, (1 - p) / 0.06)).toFixed(3));
+  }
+  renderVals() {
+    var self = this;
+    var photos = this.photos;
+    var n = photos.length;
+    var lb = this.state.lb;
+    var shown = this.state.showAll ? photos : photos.slice(0, 9);
+    var cur = lb >= 0 ? photos[lb] : photos[0];
+    var FONTS = {
+      'Hanken Grotesk': { fd: "'Hanken Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif", fb: "'Hanken Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif", fdw: '600', fdt: '-0.025em' },
+      'Geist': { fd: "'Geist', 'Helvetica Neue', Helvetica, Arial, sans-serif", fb: "'Geist', 'Helvetica Neue', Helvetica, Arial, sans-serif", fdw: '600', fdt: '-0.035em' },
+      'Manrope': { fd: "'Manrope', 'Helvetica Neue', Helvetica, Arial, sans-serif", fb: "'Manrope', 'Helvetica Neue', Helvetica, Arial, sans-serif", fdw: '700', fdt: '-0.03em' },
+      'Classic (DM Sans + Serif)': { fd: "'Instrument Serif', serif", fb: "'DM Sans', sans-serif", fdw: '400', fdt: 'normal' }
+    };
+    var font = FONTS[this.props.fontStyle] || FONTS['Hanken Grotesk'];
+    var ACCENTS = {
+      'Logo maroon #330000': { ac: '#330000', acRgb: '51,0,0', acHi: '#6b1f1f', acHiRgb: '107,31,31', acInk: '#f2efe8' },
+      'Gold (original)': { ac: '#c9a86a', acRgb: '201,168,106', acHi: '#e2c891', acHiRgb: '226,200,145', acInk: '#090b0d' }
+    };
+    var acc = ACCENTS[this.props.accentColor] || ACCENTS['Gold (original)'];
+    return {
+      ac: acc.ac,
+      acRgb: acc.acRgb,
+      acHi: acc.acHi,
+      acHiRgb: acc.acHiRgb,
+      acInk: acc.acInk,
+      fd: font.fd,
+      fb: font.fb,
+      fdw: font.fdw,
+      fdt: font.fdt,
+      galleryItems: shown.map(function (ph, i) {
+        return { src: ph.src, alt: ph.alt, cap: ph.cap, label: 'Open photo: ' + ph.cap, open: function () { self.setState({ lb: i }); } };
+      }),
+      showAll: this.state.showAll,
+      toggleLabel: this.state.showAll ? 'Show fewer' : 'View all ' + n + ' projects',
+      toggleAll: function () { self.setState({ showAll: !self.state.showAll }); },
+      lbOpen: lb >= 0,
+      lbSrc: cur.src,
+      lbAlt: cur.alt,
+      lbCap: cur.cap,
+      lbLabel: 'Project photo ' + (lb + 1) + ' of ' + n,
+      lbCount: (lb + 1) + ' / ' + n,
+      lbClose: function () { self.setState({ lb: -1 }); },
+      lbPrev: function () { self.setState({ lb: (self.state.lb - 1 + n) % n }); },
+      lbNext: function () { self.setState({ lb: (self.state.lb + 1) % n }); },
+      planks: (this.props.heroAnimation || 'Falling planks') === 'Falling planks',
+      goClass: (this.state.go && this.state.imgReady ? 'hs-go ' : '') + (this.state.imgReady ? 'hs-ready' : ''),
+      heroMode: (this.props.heroAnimation || 'Falling planks') === 'Falling planks' ? 'hs-mode-planks' : '',
+      tiles: this.tiles,
+      planksDone: this.planksDone,
+      stL: this.state.stL, stT: this.state.stT, stW: this.state.stW, stH: this.state.stH,
+      setHeroWrap: function (el) { self.heroWrap = el; },
+      setHero: function (el) { self.hero = el; },
+      setHeader: function (el) { self.header = el; },
+      heroWrapH: this.state.heroWrapH,
+      heroTop: this.state.heroTop,
+      heroPull: this.state.heroPull,
+      headerClass: (this.state.solid || this.state.menuOpen) ? 'hs-head-solid' : 'hs-head',
+      menuOpen: this.state.menuOpen,
+      menuLabel: this.state.menuOpen ? 'Close menu' : 'Open menu',
+      toggleMenu: function () { self.setState({ menuOpen: !self.state.menuOpen }); },
+      closeMenu: function () { self.setState({ menuOpen: false }); },
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      submit: function (e) { if (e && e.preventDefault) { e.preventDefault(); } self.setState({ sent: true }); },
+      reset: function () { self.setState({ sent: false }); }
+    };
+  }
+}
+</script>
+</body>
+</html>
