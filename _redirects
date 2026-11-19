@@ -1,0 +1,9 @@
+# Netlify-style 301 redirects from the old site's pages to the new single page.
+# Verify the exact old URLs in Google Search Console before launch, then adjust.
+/collections        /#collections   301
+/collections/*      /#collections   301
+/hakwood            /#collections   301
+/recoating          /#services      301
+/custom-work        /#services      301
+/gallery            /#gallery       301
+/brands             /#collections   301
