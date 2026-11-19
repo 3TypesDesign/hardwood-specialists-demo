@@ -25,7 +25,8 @@ Exported from a Claude Design canvas; no build step, no framework. Open `index.h
 ## Hero animation
 Before photo = concrete floor; after photo = finished floor. 134 `.hs-plank` divs, each a perspective-correct clip of the after image,
 drop left-to-right (CSS `hs-drop`, per-plank `--d` delay). The after image is revealed behind them with a mask wipe (`hs-wipe`).
-It starts only when both images are loaded (`.hs-ready`) AND the visitor first interacts (`.hs-go`). `site.js` sizes `#hero-stage`
+After the drop (6.4s after `.hs-go`), `.hs-hero-blur` (backdrop-filter blur 7px + light dark tint) fades in over the photo so the
+headline reads clearly; with reduced motion it is on from the start. It starts only when both images are loaded (`.hs-ready`) AND the visitor first interacts (`.hs-go`). `site.js` sizes `#hero-stage`
 to match `object-fit: cover; object-position: center 70%` of a 1418×1081 image. Respects prefers-reduced-motion.
 
 ## Open TODOs before launch

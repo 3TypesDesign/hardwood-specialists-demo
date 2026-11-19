@@ -69,3 +69,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 @media (max-width: 720px){.hs-topbar-mid,.hs-header-cta{display:none !important}}
 .hs-wrapfix{min-width:0;overflow-wrap:anywhere}
 input::placeholder,textarea::placeholder{color:rgba(10,12,14,0.5)}
+
+/* Hero: once the plank animation has finished, soften the photo so the headline reads clearly */
+.hs-hero-blur{position:absolute;inset:0;pointer-events:none;opacity:0;background:rgba(10,12,14,0.18);-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px)}
+.hs-hero.hs-go .hs-hero-blur{animation:hs-blur-in 1.4s ease forwards;animation-delay:6.4s}
+@keyframes hs-blur-in{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion: reduce){.hs-hero-blur{opacity:1;animation:none}}
