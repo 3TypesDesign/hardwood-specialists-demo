@@ -11,6 +11,7 @@ Exported from a Claude Design canvas; no build step, no framework. Open `index.h
 - In business since 1989 · Florida contractor license C9359
 - Service area: St. Petersburg, FL ONLY (do not mention Tampa Bay / Clearwater / Pinellas)
 - Services: hardwood floor installation, custom staircases, recoating & refinishing, custom work (inlays, borders, medallions)
+- Confirmed by client (Nov 2026): installs over concrete slabs (and wood subfloors); does patterned floors (parquet, patterns).
 - Site copy is in English.
 
 ## Structure
@@ -20,7 +21,12 @@ Exported from a Claude Design canvas; no build step, no framework. Open `index.h
 - `assets/images/*.webp` — images used by the site. `assets/images/originals/*.jpg` — source JPGs (not referenced; keep for re-exports).
 - `404.html` (branded, noindex), `_headers` (Netlify: security headers, long cache for images, noindex on originals/notes).
 - `assets/images/logo.png` (512×512, from favicon.svg; used as schema `logo`). JSON-LD is an `@graph`: business `#business` + `WebSite` `#website`.
-- `robots.txt`, `sitemap.xml` (includes image entries), `llms.txt`, `_redirects` (Netlify 301s from old site URLs), `favicon.svg`, `apple-touch-icon.png`, `assets/images/og-image.jpg`.
+- `robots.txt`, `sitemap.xml` (includes image entries), `llms.txt`, `_redirects` (Netlify 301s from old site URLs; also returns 404 for /CLAUDE.md and /README.md), `favicon.svg`, `apple-touch-icon.png`, `assets/images/og-image.jpg`.
+
+## Contact map
+Storefront photo card (van + truck) with `.hs-map-thumb` at bottom-left: a Google Maps embed (no API key, `output=embed`, lazy)
+rendered at 800×560 and scaled 0.45 so only the pin area shows (Google's place card/UI is cropped), plus a gold "Get Directions"
+label. The thumbnail and the photo both link to Google Maps directions (`/maps/dir/?api=1&destination=…`).
 
 ## Hero animation
 Before photo = concrete floor; after photo = finished floor. 134 `.hs-plank` divs, each a perspective-correct clip of the after image,
@@ -36,9 +42,14 @@ to match `object-fit: cover; object-position: center 70%` of a 1418×1081 image.
 3. Google Search Console + Bing Webmaster Tools: verify, submit sitemap. Add the GA4 gtag snippet to `<head>` — `site.js` already
    sends `phone_click`, `email_click`, `get_directions`, `generate_lead` whenever `window.gtag` exists (mark generate_lead as key event).
 4. Lighthouse: target 90+ mobile. Consider moving inline styles into site.css, `srcset` sizes for large images.
-5. SEO backlog: FAQ section (+ FAQPage schema) — 10 Q&As drafted (Nov 2026), WAITING on client to confirm: free estimates,
-   slab install method, typical install time, showroom walk-in vs appointment, insurance. Once confirmed: accordion section
+5. Keyword study (AnswerThePublic CSV, "hardwood installation", US, Nov 2026 — free plan, partial): top intents = cost/price
+   (33K+), engineered hardwood install (8.1K), "near me" (2.9K, CPC $18–24), underlayment/vapor barrier (2.9K), patterns (1.3K),
+   STAIRS (3×720 + "installation stairs" CPC $104), glue-down (720), on concrete (480), quote (210). Ignore DIY/tools/laminate.
+   SEO backlog: FAQ section (+ FAQPage schema) — 10 Q&As drafted (Nov 2026), WAITING on client to confirm: free estimates,
+   slab install method (glue-down/floating — slab installs themselves are confirmed), typical install time, showroom walk-in vs appointment, insurance. Once confirmed: accordion section
    before Contact, FAQPage JSON-LD in <head>, link in llms.txt. Then: more specific gallery captions (species + neighborhood), service pages,
    real Google reviews (a hidden Reviews section and a Brands section were removed from the export — brands carried:
    Hakwood, Schotten & Hansen, Mirage, Provenza, Grafch, Boischamois, Grato, Vision Wood, Teka Hardwood).
-6. Off-site: update BBB listing address (still shows 3111 22nd Ave N) and year (1989).
+6. Copy claim to CONFIRM with client before launch (added Nov 2026 from AnswerThePublic keyword study): meta/og description says
+   "Free estimates" — remove it if estimates are not free. (Concrete-slab installs and patterned floors are confirmed.)
+7. Off-site: update BBB listing address (still shows 3111 22nd Ave N) and year (1989).

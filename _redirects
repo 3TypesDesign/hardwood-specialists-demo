@@ -7,3 +7,7 @@
 /custom-work        /#services      301
 /gallery            /#gallery       301
 /brands             /#collections   301
+
+# Internal notes: kept in the repo, never served on the public site
+/CLAUDE.md          /404.html       404!
+/README.md          /404.html       404!
